@@ -1,0 +1,134 @@
+body {
+  background-color: aliceblue !important;
+}
+
+.pbHeader{
+    display: flex;
+    justify-content: center;
+}
+
+.welcome {
+        	display: flex;
+        	justify-content: center;
+        	font-size: 300px;
+        	text-shadow: 10px 10px #0dcaf0;
+        	background: transparent;
+        	margin: 0;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 300px;
+    text-shadow: 10px 10px #0dcaf0;
+    background: transparent;
+    margin: 0;
+}
+
+
+.tableContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+   border: solid;
+}
+
+.pbBody {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.pbSubsection {
+    border: solid;
+}
+
+.headerRow {
+ 	border: solid;
+}
+
+.dataCell {
+    padding: 10px;
+    border: solid;
+}
+
+.dataCol {
+    border: solid;
+}
+
+.pbButton {
+    padding: 20px;
+}
+
+.last {
+ 
+}
+
+.empty {
+    display: none;
+}
+
+/* h2 {
+  color: #44355B;
+}
+
+h3 {
+  color: #F1E5D0;
+}
+
+p {
+  color: #F1E5D0;
+}
+
+table, th, td {
+  border: 3px solid #EE5622;
+  background-color: #31263E;
+  padding: 5pt;
+}
+
+tr { 
+    color: #F1E5D0;
+}
+
+a {
+    text-decoration: none;
+    color: #F1E5D0;
+}
+
+input {
+    color: #F1E5D0;
+}
+
+
+.wrapper {
+    width: 100vw;    
+}
+
+.accountLink a:link{
+    color: #EE5622;
+}
+
+.accountTable table {
+    color: #F1E5D0;
+}
+
+.dataTable table{
+	width: 100%;
+}
+
+.dataTable  th{
+}
+
+.dataTable td {
+}
+
+.button{
+    background-color: #221E22;
+} */

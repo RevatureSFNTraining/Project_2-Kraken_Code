@@ -1,0 +1,32 @@
+.THIS {
+    background-color: #212529;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.THIS .burger {
+    animation: App-logo-spin infinite 20s linear;
+    width: 50px;
+    margin: 1rem;
+}
+
+.THIS h1 {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.THIS button {
+    margin-right: 1rem;
+}
+
+@keyframes App-logo-spin{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

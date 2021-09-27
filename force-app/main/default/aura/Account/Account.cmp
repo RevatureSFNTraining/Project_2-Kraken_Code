@@ -1,0 +1,22 @@
+<aura:component>
+
+    <aura:attribute name="selectedAccount" type="Account"/>
+    <aura:handler name="updateSelectedAccount" event="c:SelectedAccountUpdate" action="{!c.onNavChanged}"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12" >
+            <c:VerticalSelectableWithSearch/>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">
+            <div class="slds-var-p-around_large">
+                <lightning:card>
+                    <p class="slds-align_absolute-center slds-var-p-around_large">Details for {!v.selectedAccount.Name}</p>
+                </lightning:card>
+            </div>
+            <div class="slds-var-p-around_large">
+                <lightning:card>
+                    <p class="slds-align_absolute-center slds-var-p-around_large">Map for {!v.selectedAccount.Name}</p>
+                </lightning:card>
+            </div>
+        </div>
+    </div>
+</aura:component>
