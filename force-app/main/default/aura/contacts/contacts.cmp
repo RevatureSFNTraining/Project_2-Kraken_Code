@@ -1,15 +1,17 @@
-<aura:component controller="contactsController">
+<aura:component controller="contactsController" implements="force:appHostable,flexipage:availableForAllPageTypes">
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="columns" type="List"/>
     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:newContact" action="{!c.handleNewContact}"/>
     
-    <div class="slds-col slds-size_1-of-2">
-        <h1 class="slds-text-heading_large">Customers</h1>
+    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_xx-large">
+        <h1 class="slds-text-heading_large">Customers (Recent 100)</h1>
         <lightning:datatable
                          id="customerTable"
                          columns="{! v.columns }"
                          data="{! v.data }"
-                         keyField="id"/>
+                         keyField="id"
+                         />
     </div>
     
     

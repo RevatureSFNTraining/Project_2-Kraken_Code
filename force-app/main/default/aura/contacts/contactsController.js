@@ -7,5 +7,10 @@
         ]);
         
         helper.fetchContacts(component);
-	}
+	},
+
+    handleNewContact : function(component, event, helper) {
+
+        helper.fetchContacts(component);
+    }
 })

@@ -1,4 +1,5 @@
 public class FoodController {
+    /*
     public List<Food__c> foods {get; set;}
     public String fName {get; set;}
     
@@ -6,9 +7,7 @@ public class FoodController {
         this.foods = [SELECT Name, Stock_Amount__c FROM food__c];
         //update this.foods;
     }
-
-    /*
-    
+ 
     public void getOneRecord() {
         this.foods = [SELECT Name, Stock_Amount__c FROM food__c WHERE Id=:this.fName];
     }
@@ -34,8 +33,11 @@ public class FoodController {
     */
 
     @AuraEnabled
-    public static List<Food__c> getOneRecord() {
-        return [SELECT Name, Account__r.Name, Stock_Amount__c FROM food__c ORDER BY Account__c];
+    public static List<Food__c> getFoodRecords(String orderByType) 
+    {
+        String qString = 'SELECT Name, Account__r.Name, Stock_Amount__c FROM food__c';
+        String pString = ' ORDER BY ' + orderByType;
+        return Database.query(qString + pString);
     }
 
     /*

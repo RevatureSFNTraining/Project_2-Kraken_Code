@@ -10,9 +10,10 @@
                     var row = rows[i];
                     if (row.Contact__r) row.Contact__rName = row.Contact__r.Name;
                     if (row.Employee__r) row.Employee__rName = row.Employee__r.Name;
-                    //if (row.Meal__r) row.Meal__rName = row.Meal__r.Name;
+                    if (row.Meal__r) row.Meal__rName = row.Meal__r.Name;
                 }
                 component.set('v.data', rows);
+                console.log('updated');
             }
         });
         $A.enqueueAction(action);

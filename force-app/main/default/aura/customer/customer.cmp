@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+
+<aura:attribute name="Customers" type="List[]"/>
+<aura:attribute name="myColumns" type="List"/>
+
+</aura:component>

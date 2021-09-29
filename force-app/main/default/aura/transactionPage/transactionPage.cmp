@@ -1,0 +1,19 @@
+<aura:component>
+    <aura:attribute name="isNewCustomer" type="String" default="true"/>
+    <div class="slds-grid slds-gutters slds-wrap slds-m-around_xx-large">
+        
+        <div id="isCustomerDecision" class="slds-align_absolute-center slds-m-bottom_xx-large" >
+            <lightning:button aura:id="true" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center" variant="brand" name="newCustomer" label="New Customer" />
+            <lightning:button aura:id="false" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center" variant="brand" name="returningCustomer" label="Returning Customer" />
+        </div>
+        <aura:if isTrue="{!v.isNewCustomer}">
+            <c:createContact />
+            <aura:set attribute="else">
+                <c:createTransaction />
+            </aura:set>
+        </aura:if> 
+
+        <c:contacts />
+        <c:transactionsDataTable />
+    </div>
+</aura:component>	

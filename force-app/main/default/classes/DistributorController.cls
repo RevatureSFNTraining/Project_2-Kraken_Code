@@ -1,9 +1,23 @@
 global class DistributorController {
-    
+    @AuraEnabled
+    public static list<Distribution_Contract__c> getTheFrigginData(){
+        
+        return [SELECT 
+                Distributor__r.Name, 
+                Distributor__r.Primary_Email__c, 
+                Distributor__r.Additional_Email__c, 
+                Distributor__r.Phone__c, 
+                ID__c, 
+                Cost__c, 
+                CreatedDate,
+                Account__r.Name 
+            FROM Distribution_Contract__c];
+    }
+
     //public String csvParam {get; set;}
     //public String csvResult {get; set;}
     
-    @AuraEnabled
+    /*@AuraEnabled
     public static List<Distributor__c> getDistributors(){
         List<Distributor__c> ret = [SELECT id, Name FROM Distributor__c];
         return ret;
@@ -41,11 +55,11 @@ global class DistributorController {
     }
 }
 
-/* 
+
 public with sharing class DistributorController {
     public List<Distributor__c> getDistributors(){
         List<Distributor__c> ret = [SELECT id, Name FROM Distributor__c];
         return ret;
     }
+}*/
 }
-*/

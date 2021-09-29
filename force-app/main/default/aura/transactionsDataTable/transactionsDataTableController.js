@@ -1,5 +1,5 @@
 ({
-    doInit: function (component, event, helper) {
+    doInit : function (component, event, helper) {
         component.set('v.columns', [
             {label: 'Transaction #', fieldName: 'Name', type: 'autonumber', editable: false, typeAttributes: { required: true }},
             {label: 'Customer', fieldName: 'Contact__rName', type: 'text', editable: false },
@@ -10,6 +10,11 @@
             
         helper.fetchData(component);
         },
+
+    handleNewTransaction : function(component, event, helper) {
+
+        helper.fetchData(component);
+    },
             
             /*
         handleSaveEdition: function (component, event, helper) {

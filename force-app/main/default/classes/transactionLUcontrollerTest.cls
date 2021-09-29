@@ -1,6 +1,6 @@
 @isTest
 private class transactionLUcontrollerTest{
-
+    /*
     @isTest
     static void SinglePositive(){
         employee__c dummye=new employee__c(Name='John', salary__c=0, Hired_On_Date__c=date.newinstance(2020, 1, 1));
@@ -42,5 +42,6 @@ private class transactionLUcontrollerTest{
         testt=controller.ctc;
         
         system.assertequals(testt.get(0).Sale_Price__c, 5);
-    }
+    
+    }*/
 }

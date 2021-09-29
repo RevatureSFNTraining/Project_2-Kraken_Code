@@ -1,0 +1,28 @@
+<aura:component>
+    <aura:attribute name="account" type="Account"/>
+    <div class="slds-var-p-around_large">
+        <!-- {!v.account.BillingAddress.City}
+        {!v.account.BillingAddress.State}
+        {!v.account.BillingAddress.Street} -->
+        <lightning:card class="slds-var-p-around_large">
+            <!-- <p class="slds-align_absolute-center slds-var-p-around_large">Details for {!v.selectedAccount.Name}</p> -->
+            <!-- <lightning:recordViewForm objectApiName="Account" recordId="{!v.account.Id}">
+                <lightning:outputField fieldName="Name"/>
+                <lightning:outputField fieldName="BillingAddress"/>
+                <lightning:outputField fieldName="Phone"/>
+            </lightning:recordViewForm> -->
+            <!-- <p>{!v.account.Phone}</p> -->
+            <p>{!v.account.Name}</p>
+            <!-- <p>{!v.account.BillingCountry}</p> -->
+            <!-- AIzaSyBTP9NckrO3V9JGY7ufPKqvbXHC6io8lRE -->
+            <lightning:formattedPhone value="{!v.account.Phone}"/>
+            <lightning:formattedAddress 
+                city="{!v.account.BillingCity}" 
+                country="{!v.account.BillingCountry}"
+                street="{!v.account.BillingStreet}"
+                province="{!v.account.BillingState}"
+                postalCode="{!v.account.BillingPostalCode}"
+            />
+        </lightning:card>
+    </div>
+</aura:component>

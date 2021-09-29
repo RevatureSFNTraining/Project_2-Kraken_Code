@@ -1,7 +1,7 @@
 ({
 
     doInit : function(component, event, helper) {
-        document.title = "The Restäurant";
+        
         
     },
 

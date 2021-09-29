@@ -28,11 +28,7 @@
             console.log(found);
             let updateEvent = component.getEvent("updateSelectedAccount");
             updateEvent.setParams({"selectedAccount":found});
-            updateEvent.fire();           
-            console.log(updateEvent.getParams());
-            console.log(updateEvent.getName());
-            console.log(updateEvent.getParam("selectedAccount"));
-            console.log(updateEvent.getType());
+            updateEvent.fire();
         }
     }
 })

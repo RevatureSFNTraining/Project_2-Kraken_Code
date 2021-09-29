@@ -4,6 +4,6 @@ public class contactsController {
     @AuraEnabled
     public static List<Contact> fetchContacts() {
         
-        return [SELECT Name, Phone FROM Contact];
+        return [SELECT Name, Phone FROM Contact ORDER BY createdDate DESC LIMIT 100];
     }
 }

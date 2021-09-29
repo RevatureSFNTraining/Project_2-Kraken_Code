@@ -1,9 +1,9 @@
-<aura:component>
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:registerEvent name="pageChangeEvent" type="c:pageChangeEv"/>
     
     <div id="header">
-    	<h1>The Restäurant</h1>
+    	<h1>The Restaürant</h1>
         <img class="burger" src="{!$Resource.burger}" />
         <lightning:buttonMenu aura:id="headerMenu" variant="border-filled" alternativeText="Show menu"
             onselect="{! c.handleSelect }" menuAlignment="auto">

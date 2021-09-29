@@ -1,7 +1,26 @@
 ({
 	getControllerData : function(cmp) {
 		// start building function call to APEX controller method
-		let method = component.get('c.getOneRecord');
+		let method = cmp.get('c.getFoodRecords');
+
+		let sortType = cmp.find('select').get('v.value');
+		let sortObj;
+		switch(sortType)
+		{
+			case 'food':
+				sortObj = 'Name';
+				break;
+			case 'store':
+				sortObj = 'Account__c';
+				break;
+			case 'stock':
+				sortObj = 'Stock_Amount__c';
+				break;
+			default:
+				sortObj = 'Account__c';
+		}
+
+		method.setParams({orderByType : sortObj});
 
 		// create a callback funtion that will perform logic on return
 		// from controller method
@@ -9,8 +28,10 @@
 		{
 			if(response.getState() === "SUCCESS")
 			{
+				
 				var rows = response.getReturnValue();
-				/*
+				// this loop is used to flatten the data
+				// (converts objects into strings that can be presented in the table)
 				for(var i = 0; i < rows.length; i++)
 				{
 					var row = rows[i];
@@ -19,8 +40,9 @@
 						row.Account__rName = row.Account__r.Name;
 					}
 				}
-				*/
-				component.set('v.data', rows);
+				
+
+				cmp.set('v.data', rows);
 			}
 		});
 		$A.enqueueAction(method);

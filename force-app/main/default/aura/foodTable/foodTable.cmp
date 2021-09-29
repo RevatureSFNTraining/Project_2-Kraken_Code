@@ -7,12 +7,23 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
 
-    <!-- the container element determine the height of the datatable -->
-    <div style="height: 300px">
+    <!-- the container element of the datatable -->
+    <div class='slds-col slds-size_1-of-2'>
+
+        <lightning:select aura:id="select" name="select" label="Filter By:" onchange="{!c.filterChange}">
+            <option value="">choose one...</option>
+            <option value="food">Food Name</option>
+            <option value="store">Store</option>
+            <option value="stock">Stock</option>
+        </lightning:select>
+
+        <h1 class='slds-txt-heading_large'>Store Inventories</h1>
+
         <lightning:datatable
                 keyField="id"
                 data="{!v.data}"
                 columns="{!v.columns}"
+                hideCheckboxColumn="true"
                 />
     </div>
 </aura:component>
