@@ -44,7 +44,7 @@
 
     <aura:if isTrue="{!v.isAccounts}">
       
-        
+        <c:Account/>
     </aura:if>
     
         

@@ -1,6 +1,28 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+<aura:component controller="ContactTableController"  implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
 
-<aura:attribute name="Customers" type="List[]"/>
-<aura:attribute name="myColumns" type="List"/>
+<aura:attribute name="data" type="Object"/>
+<aura:attribute name="columns" type="List"/>
+<aura:attribute name="errors" type="Object" default="[]"/>
+<aura:attribute name="draftValues" type="Object" default="[]"/>
+
+<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+<aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
+
+<div class="slds-p-around_medium">
+    <h1 class="slds-text-heading_large">Customers</h1>
+</div>
+
+<div style="height: 300px">
+    <lightning:datatable aura:id="dtTable"
+                            columns="{! v.columns }"
+                            data="{! v.data }"
+                            keyField="Id"
+                            errors="{! v.errors }"
+                            draftValues="{! v.draftValues }"
+                            onsave="{! c.handleSaveEdition }"
+                            onrowaction="{!c.handleRowAction}"
+                            hideCheckboxColumn="true"
+                            />
+</div>
 
 </aura:component>

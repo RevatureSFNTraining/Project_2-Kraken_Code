@@ -1,5 +1,5 @@
 ({
-	fetchData: function (component) {
+	fetchData: function(component) {
         let action = component.get('c.fetchTransactionsData');
         
         action.setCallback(this, function(res) {
@@ -13,29 +13,34 @@
                     if (row.Meal__r) row.Meal__rName = row.Meal__r.Name;
                 }
                 component.set('v.data', rows);
-                console.log('updated');
             }
         });
         $A.enqueueAction(action);
     },
-    /*
-    saveEdition: function (component, draftValues) {
-        let a = component.get('c.setNewTransactionsData');
-        console.log({draftValues : component.get("v.draftValues")});
-        a.setParams({draftValues : component.get("v.draftValues")});
+
+    deleteTransactions : function(component, rows) {
+
+        let delTransactions = component.get('c.deleteTransactionList');
         
-        var self = this;
-        
-        a.setCallback(this, function(res) {
-            if (res.getState() === "SUCCESS") {
-                var returnValue = res.getReturnValue();
-                
-                
-                component.set('v.draftValues', []);
-                self.fetchData(Component);
-                
+        let transactions = [];
+        for (let i = 0; i < rows.length; i++) {
+            transactions.push(rows[i]);
+        }
+        console.log(transactions);
+
+        delTransactions.setParams({
+            "transactionList" : transactions
+        });
+
+        delTransactions.setCallback(this, function(res) {
+            if(res.getState() === "SUCCESS") {
+                console.log("table updated");
             }
         });
-    } */
+        console.log(delTransactions);
+        $A.enqueueAction(delTransactions);
+        component.set("v.rows", [])
+        this.fetchData(component); 
+    }
       
 })

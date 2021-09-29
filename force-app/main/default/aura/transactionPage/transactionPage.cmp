@@ -1,19 +1,32 @@
 <aura:component>
     <aura:attribute name="isNewCustomer" type="String" default="true"/>
-    <div class="slds-grid slds-gutters slds-wrap slds-m-around_xx-large">
+    <div class="slds-grid slds-gutters slds-wrap slds-m-vertical_xx-large slds-m-horizontal_small">
         
-        <div id="isCustomerDecision" class="slds-align_absolute-center slds-m-bottom_xx-large" >
-            <lightning:button aura:id="true" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center" variant="brand" name="newCustomer" label="New Customer" />
-            <lightning:button aura:id="false" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center" variant="brand" name="returningCustomer" label="Returning Customer" />
-        </div>
-        <aura:if isTrue="{!v.isNewCustomer}">
-            <c:createContact />
-            <aura:set attribute="else">
-                <c:createTransaction />
-            </aura:set>
-        </aura:if> 
+        
+        
+        <lightning:card class="slds-col slds-size_1-of-1 slds-m-bottom_xx-large">
+            <div id="isCustomerDecision" class="slds-align_absolute-center slds-m-bottom_small" >
+                <lightning:button aura:id="true" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center button" variant="brand" name="newCustomer" label="New Customer" />
+                <lightning:button aura:id="false" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center button" variant="brand" name="returningCustomer" label="Returning Customer" />
+            </div>
+            <aura:if isTrue="{!v.isNewCustomer}">
+                <c:createContact />
+                <aura:set attribute="else">
+                    <c:createTransaction />
+                </aura:set>
+            </aura:if> 
+        </lightning:card>
+        
+        
+        
+        <lightning:card class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_xx-large">
+            <c:contacts />
+        </lightning:card>
 
-        <c:contacts />
-        <c:transactionsDataTable />
+        <lightning:card class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_xx-large">
+            <c:transactionsDataTable />
+        </lightning:card>
+        
+        
     </div>
-</aura:component>	
+</aura:component>

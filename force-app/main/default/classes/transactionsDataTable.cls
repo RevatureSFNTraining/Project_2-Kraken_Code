@@ -13,11 +13,11 @@ public with sharing class transactionsDataTable {
     }
     
     
-    /*
+    
     @AuraEnabled
-    public static void setNewTransactionsData(List<Transaction__c> draftValues) {
+    public static void deleteTransactionList(List<SObject> transactionList) {
         
-        upsert draftValues;
+        delete transactionList;
      
-    } */
+    } 
 }

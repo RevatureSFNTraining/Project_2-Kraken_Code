@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    openModal : function(component, event, helper) {
+        helper.openModal(component);
     }
 })

@@ -1,3 +1,26 @@
 <aura:component >
-	
+    <div class="row">
+        <h2 class="header">Search for Employee</h2>
+        <lightning:input type="String" name="searchName" label="Name: " />
+        <lightning:input type="String" name="searchGender" label="Gender: " />
+        <lightning:input type="email" name="searchEmail" label="Email: " />
+    </div>
+    <aura:attribute name="empName" type="String"/>
+    <aura:attribute name="empGender" type="String"/>
+    <aura:attribute name="empEmail" type="String"/>
+    <aura:attribute name="Employees" type="Object[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card iconName="custom:custom15" title="Employee Card">
+    	<div class="slds-p-left_medium slds-p-right_medium">
+            <ul class="slds-list_vertical slds-has-dividers_top-space">
+                <aura:iteration items="{!v.getEmployees}" var="emp">
+                    <li class="slds-list__item">
+                        {!emp.Name}
+                        {!emp.gender__c}
+                        {!emp.Email__c}
+                    </li>
+                </aura:iteration>
+            </ul>
+        </div>
+    </lightning:card>    
 </aura:component>

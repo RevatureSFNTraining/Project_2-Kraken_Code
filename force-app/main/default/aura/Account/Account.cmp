@@ -1,24 +1,17 @@
 <aura:component>
-
     <aura:attribute name="selectedAccount" type="Account"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
     <aura:handler name="updateSelectedAccount" event="c:SelectedAccountUpdate" action="{!c.onNavChanged}"/>
+    <aura:handler name="openAccountModal" event="c:OpenAccountModal" action="{!c.openModal}"/>
+    <aura:handler name="closeAccountModal" event="c:OpenAccountModal" action="{!c.closeModal}"/>
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12" >
             <c:VerticalSelectableWithSearch/>
         </div>
         <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">
             <c:AccountInfo account="{!v.selectedAccount}"/>
-            <div class="slds-var-p-around_large">
-                <lightning:card>
-                    <p class="slds-align_absolute-center slds-var-p-around_large">Map for {!v.selectedAccount.Name}</p>
-                    <div class="slds-map_container">
-                        <div id="map" class="slds-map">
-                          <iframe style="filter: invert(90%)" id="GoogleMapID" title="Google Maps iframe" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBTP9NckrO3V9JGY7ufPKqvbXHC6io8lRE&amp;q=6120 Franklin Ave,+New+Orleans,+LA+70122"></iframe>
-                        </div>
-                      </div>
-                </lightning:card>
-
-            </div>
+            <c:AccountMap account="{!v.selectedAccount}"/>
         </div>
     </div>
+    <c:AccountModal isModalOpen="{!v.isModalOpen}" account="{!v.selectedAccount}"/>
 </aura:component>

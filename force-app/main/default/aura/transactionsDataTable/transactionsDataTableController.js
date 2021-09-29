@@ -11,15 +11,17 @@
         helper.fetchData(component);
         },
 
-    handleNewTransaction : function(component, event, helper) {
+    handleEvents : function(component, event, helper) {
 
         helper.fetchData(component);
     },
-            
-            /*
-        handleSaveEdition: function (component, event, helper) {
-            var draftValues = event.getParam('draftValues');
-            
-            helper.saveEdition(component, draftValues);
-        } */
+
+    storeRows : function(component, event, helper) {
+        let selectedRows = event.getParam("selectedRows");
+        component.set("v.selectedRows", selectedRows);
+    },
+
+    deleteSelectedTransactions : function (component, event, helper) {
+        helper.deleteTransactions(component, component.get("{!v.selectedRows}"));
+    }
 })

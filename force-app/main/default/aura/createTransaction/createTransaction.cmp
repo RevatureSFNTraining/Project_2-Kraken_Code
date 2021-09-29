@@ -3,7 +3,7 @@
     <aura:registerEvent name="newTransaction" type="c:newTransaction"/>
     <aura:attribute name="hide" type="string" default="false"/>
 
-    <div class="slds-col slds-size_1-of-1 slds-m-bottom_xx-large">
+    <div class="slds-m-bottom_medium">
         <lightning:recordEditForm objectApiName="Transaction__c"  onsuccess="{!c.handleSuccess}">
             
            
@@ -15,9 +15,9 @@
             <lightning:inputField fieldName="Sale_Price__c" />
             <lightning:inputField aura:id="checkBox" fieldName="Tip__c" onchange="{!c.disableAmount}"/>
             <aura:if isTrue="{!v.hide}">
-                <lightning:inputField fieldName="Tip_amount__c" />
+                <lightning:inputField fieldName="Tip_Amount__c" />
+                <lightning:inputField fieldName="Tip_Type__c" />
             </aura:if>
-            <lightning:inputField fieldName="Tip_type__c" />
             <lightning:button class="slds-m-top_small slds-align_absolute-center" variant="brand" type="submit" name="createTransaction" label="Create Transaction" />
            
         

@@ -3,7 +3,7 @@
     <aura:registerEvent name="newContact" type="c:newContact"/>
     <aura:attribute name="hide" type="string" default="false"/>
 
-    <div class="slds-col slds-size_1-of-1 slds-m-bottom_xx-large">
+    <div class="slds-m-bottom_medium">
         <lightning:recordEditForm objectApiName="Contact"  onsuccess="{!c.handleSuccess}">
             
             <lightning:messages />
