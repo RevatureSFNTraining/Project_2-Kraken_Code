@@ -11,7 +11,7 @@
 
     <div>
         <h1 class="slds-text-heading_large slds-align_absolute-center">Transactions (Recent 100)</h1>
-        <lightning:button class="slds-m-vertical_medium slds-align_absolute-center" variant="brand" name="deleteTransactions" label="Delete Selected Transactions" onclick="{!c.deleteSelectedTransactions}"/>
+        <lightning:button class="slds-m-vertical_medium slds-align_absolute-center slds-button_destructive" name="deleteTransactions" label="Delete Selected Transactions" onclick="{!c.deleteSelectedTransactions}"/>
         <lightning:datatable
                          columns="{! v.columns }"
                          data="{! v.data }"

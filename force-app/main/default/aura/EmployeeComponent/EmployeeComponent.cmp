@@ -1,26 +1,35 @@
-<aura:component >
-    <div class="row">
-        <h2 class="header">Search for Employee</h2>
-        <lightning:input type="String" name="searchName" label="Name: " />
-        <lightning:input type="String" name="searchGender" label="Gender: " />
-        <lightning:input type="email" name="searchEmail" label="Email: " />
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name="emp" type="Employee__c" />
+    <aura:attribute name="recordId" type="String" />    
+    <aura:attribute name="activeEmployees" type="Object[]"/>
+    
+    <div onkeyup="{! c.handleKeyUp }" class="slds-var-p-left_medium slds-var-p-right_medium">
+            <lightning:input                
+                aura:id="enter-search"
+                name="enter-search"
+                label="Search for Employee by ID"
+                type="search"
+            />
     </div>
-    <aura:attribute name="empName" type="String"/>
-    <aura:attribute name="empGender" type="String"/>
-    <aura:attribute name="empEmail" type="String"/>
-    <aura:attribute name="Employees" type="Object[]"/>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <lightning:card iconName="custom:custom15" title="Employee Card">
-    	<div class="slds-p-left_medium slds-p-right_medium">
-            <ul class="slds-list_vertical slds-has-dividers_top-space">
-                <aura:iteration items="{!v.getEmployees}" var="emp">
-                    <li class="slds-list__item">
-                        {!emp.Name}
-                        {!emp.gender__c}
-                        {!emp.Email__c}
-                    </li>
-                </aura:iteration>
-            </ul>
+
+    <lightning:card>
+        <lightning:icon iconName="custom:custom15" size="small"/>
+    	<div class="slds-align-absolute-center">
+            <lightning:recordViewForm objectApiName="Employee__c" recordId="{!v.recordId}">
+                <lightning:outputField fieldName="Name"/>
+                <lightning:outputField fieldName="gender__c"/>
+                <lightning:outputField fieldName="Email__c"/>
+            </lightning:recordViewForm>
         </div>
-    </lightning:card>    
+    </lightning:card>
+	<lightning:recordEditForm aura:id="recordEditForm"
+                           objectApiName="Employee__c">
+        <lightning:messages />
+        <lightning:inputField fieldName="Name" />
+        <lightning:inputField fieldName="gender__c" />
+        <lightning:inputField fieldName="Email__c" />
+        <lightning:inputField fieldName="Hired_On_Date__c" />
+        <lightning:inputField fieldName="Salary__c" />
+        <lightning:button class="slds-var-m-top_small" type="submit" label="Create New Employee Record" />
+    </lightning:recordEditForm>    
 </aura:component>

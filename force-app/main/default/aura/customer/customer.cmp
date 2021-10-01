@@ -1,28 +1,38 @@
 <aura:component controller="ContactTableController"  implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
 
+<aura:attribute name="fdata" type="Object"/>
 <aura:attribute name="data" type="Object"/>
 <aura:attribute name="columns" type="List"/>
 <aura:attribute name="errors" type="Object" default="[]"/>
 <aura:attribute name="draftValues" type="Object" default="[]"/>
+<aura:attribute name="sortedBy" type="String" default="Name"/>
+<aura:attribute name="sortedDirection" type="string" default="asc"/>
 
 <aura:handler name="init" value="{! this }" action="{! c.init }"/>
 <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
 
 <div class="slds-p-around_medium">
-    <h1 class="slds-text-heading_large">Customers</h1>
+<h1 class="slds-text-heading_large">Customers</h1>
 </div>
 
-<div style="height: 300px">
-    <lightning:datatable aura:id="dtTable"
-                            columns="{! v.columns }"
-                            data="{! v.data }"
-                            keyField="Id"
-                            errors="{! v.errors }"
-                            draftValues="{! v.draftValues }"
-                            onsave="{! c.handleSaveEdition }"
-                            onrowaction="{!c.handleRowAction}"
-                            hideCheckboxColumn="true"
-                            />
+<div>
+<span>
+    <lightning:input type="search" lable="Search" placeholder="Search Customers" aura:id="SearchBox"
+                        onchange="{!c.searchTable}" />
+</span>
+<lightning:datatable aura:id="dtTable"
+                    columns="{! v.columns }"
+                    data="{! v.fdata }"
+                    keyField="Id"
+                    errors="{! v.errors }"
+                    draftValues="{! v.draftValues }"
+                    onsave="{! c.handleSaveEdition }"
+                    onrowaction="{!c.handleRowAction}"
+                    hideCheckboxColumn="true"
+                    onsort="{!c.updateSorting}"
+                    sortedBy="{!v.sortedBy}"
+                    sortedDirection="{!v.sortedDirection}"
+                    />
 </div>
 
 </aura:component>

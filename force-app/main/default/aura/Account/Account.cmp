@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     <aura:attribute name="selectedAccount" type="Account"/>
     <aura:attribute name="isModalOpen" type="boolean" default="false"/>
     <aura:handler name="updateSelectedAccount" event="c:SelectedAccountUpdate" action="{!c.onNavChanged}"/>

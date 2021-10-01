@@ -1,5 +1,6 @@
 ({
     onRender : function(component) {
+        // after renedering assign map markers
         let acc = component.get("v.account");
         let markers;
         if(acc && acc.BillingStreet){
@@ -14,6 +15,7 @@
                 }
             ];
         } else {
+            // default to salesforce tower
             markers = [
                 {
                     location: {

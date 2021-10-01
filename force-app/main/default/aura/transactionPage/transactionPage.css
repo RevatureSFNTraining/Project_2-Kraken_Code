@@ -1,4 +1,15 @@
-.THIS .mainCard {
+.THIS button {
     
-     
+     color:white;
+     white-space:nowrap;
+}
+
+.THIS .mainCard {
+     max-width: 800px;
+     padding: 0 50px;
+     display: block;
+}
+
+.THIS .mainDiv {
+     display: block;
 }

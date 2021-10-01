@@ -17,7 +17,6 @@
                         <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Employee</h2>
                     </header>
                     <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
-                        <!-- <lightning:messages/> -->
                         <lightning:inputField fieldName="Name"/>
                         <lightning:inputField fieldName="Hired_On_Date__c" value="{!v.today}"/>
                         <lightning:inputField fieldName="Salary__c"/>
@@ -31,14 +30,6 @@
                                             label="Create"
                                             title="Create"
                                             type="submit"/>
-                        <!-- <lightning:button variant="neutral"
-                                            label="Cancel"
-                                            title="Cancel"
-                                            onclick="{!c.cancel}"/>
-                        <lightning:button variant="brand"
-                                            label="OK"
-                                            title="OK"
-                                            onclick="{!c.submitDetails}"/> -->
                     </footer>
                 </lightning:recordEditForm>
             </div>
