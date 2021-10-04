@@ -14,6 +14,22 @@ global class DistributorController {
             FROM Distribution_Contract__c];
     }
 
+    @AuraEnabled
+    public static boolean updateDisCon(List<Distributor__c> disCon){
+        try {
+            update disCon;
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /*@AuraEnabled
+    public static void updateDisCon(List<Distributor__c> disCon){
+        update disCon;
+    }*/
+
+
     //public String csvParam {get; set;}
     //public String csvResult {get; set;}
     

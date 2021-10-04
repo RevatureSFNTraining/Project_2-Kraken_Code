@@ -4,6 +4,7 @@
 
     <aura:registerEvent name='saveEvent' type='c:foodRecordSave'/>
     
+    <h1 class="slds-text-heading_large slds-align_absolute-center">Create Inventory Item</h1>
     <lightning:recordForm objectApiName="Food__c" fields="{!v.fields}" onsuccess="{!c.onSave}" recordId="{!v.recordID}"/>
 
 </aura:component>

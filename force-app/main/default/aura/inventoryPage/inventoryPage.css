@@ -1,0 +1,9 @@
+#container.THIS
+{
+    background-color: rgb(100, 95, 105);
+}
+
+.THIS.slds-card
+{
+    background-color: blue;
+}

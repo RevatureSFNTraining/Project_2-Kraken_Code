@@ -6,7 +6,7 @@
  <aura:attribute name="sortedDirection" type="string" default="asc" />
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
     <div class="EmpSearch">
-    	<lightning:input type="search" label="Search" placeholder="Search Employees" aura:id="SearchBox"
+    	<lightning:input type="search" class="slds-var-p-left_medium slds-var-p-right_medium" label="Search" placeholder="Search Employees" aura:id="SearchBox"
                          onchange="{!c.searchTable}" />
     </div>
     <lightning:layout multipleRows="true" horizontalAlign="center">

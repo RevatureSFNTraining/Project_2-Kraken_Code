@@ -1,6 +1,5 @@
 public with sharing class transactionsDataTable {
     
-    //gets most recent 100 transaction records; for transaction page datatable
     @AuraEnabled
     public static List<Transaction__c> fetchTransactionsData() {
         
@@ -14,7 +13,7 @@ public with sharing class transactionsDataTable {
     }
     
     
-    //deletes list of transactions passed into it
+    
     @AuraEnabled
     public static void deleteTransactionList(List<SObject> transactionList) {
         

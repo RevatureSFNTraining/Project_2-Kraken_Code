@@ -47,4 +47,93 @@
 		});
 		$A.enqueueAction(method);
 	},
+
+	updateRecord : function(cmp, event, helper)
+	{
+		var editedRecords = event.getParam('draftValues');
+		var msg = ' Food Record Updated';
+		var totalRecordEdited = editedRecords.length;
+		var method = cmp.get('c.updateInventory');
+		method.setParams({"foodList" : editedRecords});
+
+		if(editedRecords > 1)
+		{
+			msg = ' Food Records Updated';
+		}
+
+		method.setCallback(this, function(res)
+		{			
+			if(res.getState() === "SUCCESS")
+			{
+				if(res.getReturnValue() === true)
+				{
+					
+                    helper.showToast({
+                        "title": "Record Update",
+                        "type": "success",
+                        "message": totalRecordEdited + msg
+                    });
+                    //helper.reloadDataTable();
+					helper.getControllerData(cmp);
+                } 
+				//if update got failed
+				else
+				{ 
+                    helper.showToast({
+                        "title": "Error!!",
+                        "type": "error",
+                        "message": "Error in update"
+                    });
+                }
+			}
+			
+		});
+		$A.enqueueAction(method);
+	},
+
+	/*
+     * Show toast with provided params
+     * */
+    showToast : function(params){
+        var toastEvent = $A.get("e.force:showToast");
+        if(toastEvent){
+            toastEvent.setParams(params);
+            toastEvent.fire();
+        } else{
+            alert(params.message);
+        }
+    },
+	
+	reloadDataTable : function()
+	{
+		var refreshEvent = $A.get("e.force:refreshView");
+		if(refreshEvent){
+			refreshEvent.fire();
+		}
+	}
+
+	/*
+	//if update is successful
+                if(res.getReturnValue() === true)
+				{
+                    helper.showToast({
+                        "title": "Record Update",
+                        "type": "success",
+                        //"message": totalRecordEdited + " Account Records Updated"
+						"message": editedRecords
+                    });
+                    helper.reloadDataTable();
+					//helper.getControllerData(cmp);
+                } 
+				//if update got failed
+				else
+				{ 
+                    helper.showToast({
+                        "title": "Error!!",
+                        "type": "error",
+                        "message": "Error in update"
+                    });
+                }
+	*/
+	
 })

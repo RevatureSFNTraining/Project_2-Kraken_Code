@@ -19,6 +19,11 @@
         });
         $A.enqueueAction(cases);
         
+    },
+
+    changeMode : function(component, event) {
+        let decision = event.getSource().getLocalId();
+        component.set("v.mode", decision);
     }
 
 })

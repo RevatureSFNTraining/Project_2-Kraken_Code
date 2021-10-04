@@ -41,6 +41,27 @@ public class FoodController {
     }
 
     /*
+    @AuraEnabled 
+    public static void updateInventory(List<Food__c> foodList)
+    {
+        update foodList;
+    }
+    */
+
+    
+    @AuraEnabled
+    public static boolean updateInventory(List<Food__c> foodList){
+        try {
+            update foodList;
+            return true;
+        } catch (Exception e) {
+            //System.debug(e);
+            return false;
+        }
+    }
+    
+
+    /*
     @AuraEnabled
     public static void increaseStock() {
         getOneRecord();

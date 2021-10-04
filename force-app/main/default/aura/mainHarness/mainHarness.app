@@ -20,16 +20,11 @@
     </aura:if>
 
     <aura:if isTrue="{!v.isDistributors}">
-        
-        
+        <c:DistributorPage/>
     </aura:if>
 
     <aura:if isTrue="{!v.isInventory}">
-        
-        <div class="slds-grid">
-            <c:foodTable />
-            
-        </div>
+        <c:inventoryPage/>
         
     </aura:if>
 

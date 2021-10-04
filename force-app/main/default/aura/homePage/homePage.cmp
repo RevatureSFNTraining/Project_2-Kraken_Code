@@ -1,68 +1,80 @@
 <aura:component controller="HomePageController">
     <aura:attribute name="Name" type="String"/>
     <aura:attribute name="openCases" type="Case[]" />
+    <aura:attribute name="mode" type="Boolean" default="true" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <h1 class="slds-align_absolute-center slds-p-around_small welcome">Welcome {!v.Name}!</h1>
 
     <div class="slds-m-around_small">
-    <h2 class="infoHeader warningHeader slds-align_absolute-center">NOTICE: This is the internal site of The Restaürant!</h2>
-    <h2 class="infoHeader caseHeader slds-align_absolute-center slds-m-vertical_large">Create a case:</h2>
+        <h2 class="infoHeader warningHeader slds-align_absolute-center">NOTICE: This is the internal site of The Restaürant!</h2>
     
-    <div class="createCase">
-        <lightning:card class="slds-p-horizontal_medium">
-            <lightning:recordEditForm objectApiName="Case" onsuccess="{!c.reDrawCases}">
-                        <lightning:messages />
-                        <lightning:inputField fieldName="AccountId" />
-                        <lightning:inputField fieldName="Description" />
-                        <lightning:inputField fieldName="Status" />
-                        <lightning:inputField fieldName="Priority" />
-                        <lightning:inputField fieldName="Origin" />
-                        <div class="slds-var-m-top_medium">
-                            <lightning:button
-                                type="submit"
-                                class="slds-align_absolute-center saveButton"
-                                label="Save">
-                            </lightning:button>
-                        </div>
-            </lightning:recordEditForm>
-        </lightning:card>
-    </div>
-    
-    
-
-    <h2 class="infoHeader caseHeader slds-align_absolute-center slds-m-vertical_large">Open Cases:</h2>
-
-        <div class="slds-grid slds-gutters slds-wrap slds-align_absolute-center">
-            <aura:iteration items="{!v.openCases}" var="case">
-                <div class="slds-col slds-m-bottom_medium caseCard">
-                    <lightning:card class="slds-p-horizontal_small">
-                    
-                        
-                        <lightning:recordEditForm objectApiName="Case" recordId="{!case.Id}" onsuccess="{!c.reDrawCases}">
-                        <lightning:messages />
-                        <lightning:outputField fieldName="CaseNumber" />
-                        <lightning:inputField fieldName="AccountId" />
-                        <lightning:inputField fieldName="ContactPhone" />
-                        <lightning:inputField fieldName="Description" />
-                        <lightning:inputField fieldName="Status" />
-                        <lightning:inputField fieldName="Priority" />
-                        <lightning:inputField fieldName="Origin" />
-                        <div class="slds-var-m-top_medium">
-                            <lightning:button
-                                type="submit"
-                                class="slds-align_absolute-center saveButton"
-                                label="Save">
-                            </lightning:button>
-                        </div>
-                        </lightning:recordEditForm>
-                    
-                    </lightning:card>
-                </div>
-            </aura:iteration>
+        <div class="decisionButtonsContainer">
+            <lightning:button class="decisionButton" aura:id="true" label="Case Management" onclick="{!c.changeMode}" />
+            <lightning:button class="decisionButton" aura:id="false" label="Lead Management" onclick="{!c.changeMode}" />
         </div>
+        
+        
+        <aura:if isTrue="{!v.mode}">
             
-       
+
+            <h2 class="infoHeader header slds-align_absolute-center slds-m-vertical_large">Create a case:</h2>
+            <div class="create">
+                <lightning:card class="slds-p-horizontal_medium">
+                    <lightning:recordEditForm objectApiName="Case" onsuccess="{!c.reDrawCases}">
+                                <lightning:messages />
+                                <lightning:inputField fieldName="AccountId" />
+                                <lightning:inputField fieldName="Description" />
+                                <lightning:inputField fieldName="Status" />
+                                <lightning:inputField fieldName="Priority" />
+                                <lightning:inputField fieldName="Origin" />
+                                <div class="slds-var-m-top_medium">
+                                    <lightning:button
+                                        type="submit"
+                                        class="slds-align_absolute-center saveButton"
+                                        label="Save">
+                                    </lightning:button>
+                                </div>
+                    </lightning:recordEditForm>
+                </lightning:card>
+            </div>
+    
+    
+
+            <h2 class="infoHeader header slds-align_absolute-center slds-m-vertical_large">Open Cases:</h2>
+
+            <div class="slds-grid slds-gutters slds-wrap slds-align_absolute-center">
+                <aura:iteration items="{!v.openCases}" var="case">
+                    <div class="slds-col slds-m-bottom_medium slds-small-size_6-of-12 slds-medium-size_1-of-3">
+                        <lightning:card class="slds-p-horizontal_small">
+                        
+                            
+                            <lightning:recordEditForm objectApiName="Case" recordId="{!case.Id}" onsuccess="{!c.reDrawCases}">
+                            <lightning:messages />
+                            <lightning:outputField fieldName="CaseNumber" />
+                            <lightning:inputField fieldName="AccountId" />
+                            <lightning:inputField fieldName="Description" />
+                            <lightning:inputField fieldName="Status" />
+                            <lightning:inputField fieldName="Priority" />
+                            <lightning:inputField fieldName="Origin" />
+                            <div class="slds-var-m-top_medium">
+                                <lightning:button
+                                    type="submit"
+                                    class="slds-align_absolute-center saveButton"
+                                    label="Save">
+                                </lightning:button>
+                            </div>
+                            </lightning:recordEditForm>
+                        
+                        </lightning:card>
+                    </div>
+                </aura:iteration>
+            </div>
+            <aura:set attribute="else">
+              <c:leadManagement />
+            </aura:set>
+          </aura:if> 
+
     </div>
     
 </aura:component>

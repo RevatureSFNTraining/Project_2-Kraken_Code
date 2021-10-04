@@ -12,7 +12,7 @@ public with sharing class HomePageController {
     @AuraEnabled
     public static List<Case> fetchCases(){
        
-        return [SELECT id, CaseNumber, AccountId, ContactPhone, Description FROM Case WHERE Status != 'Closed'];
+        return [SELECT id, CaseNumber, AccountId, Description FROM Case WHERE Status != 'Closed'];
             
     }
 

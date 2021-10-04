@@ -10,7 +10,7 @@
     <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download As CSV</button> <br/><br/>
  
 <!--HTML table display-->
-<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+<table class="slds-table slds-table--bordered slds-table--cell-buffer slds-border_left slds-border_right slds-border_top slds-border_bottom">
   <thead>
     <tr class="slds-text-title--caps">
         <th class="slds-is-sortable slds-text-title--caps" scope="col">

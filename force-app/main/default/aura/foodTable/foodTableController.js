@@ -13,5 +13,15 @@
     filterChange: function(cmp, event, helper)
     {
         helper.getControllerData(cmp);
-    }
+    },
+
+    handleTableSave: function(cmp, event, helper)
+    {
+        helper.updateRecord(cmp, event, helper);
+        //helper.getControllerData(cmp);
+    },
+
+    isRefreshed: function(component, event, helper) {
+        location.reload();
+    },
 })

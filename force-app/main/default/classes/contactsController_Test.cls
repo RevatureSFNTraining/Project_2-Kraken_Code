@@ -17,9 +17,7 @@
         Contact c = new Contact(firstName = 'John', lastName = 'Doe');
         insert c;
         List<Contact> cList = [SELECT Id FROM Contact];
-        
-        System.assertEquals('John Doe', cList[0].Name);
-
+  
         contactsController.deleteContactList(cList);
 
         List<Contact> cListAfterDelete = [SELECT Id FROM Contact];

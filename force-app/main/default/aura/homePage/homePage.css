@@ -11,6 +11,34 @@
     font-size: 1rem;
 }
 
+.THIS .decisionButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 40%;
+    margin: 5vh auto;
+}
+
+.THIS .decisionButton {
+    background-color: hsl(210, 11%, 25%);
+    color:white;
+    white-space:nowrap;
+    height: 50px;
+    width: 100%;
+}
+
+.THIS .decisionButton:hover {
+    background-color: hsl(210, 11%, 15%);
+    color:white;
+}
+
+.THIS .decisionButton:focus {
+    background-color: hsl(210, 11%, 15%);
+    color:white;
+    border: none;
+}
+
 .THIS .warningHeader {
 
     background-color: hsl(0, 100%, 33%);
@@ -21,7 +49,7 @@
     padding: 5px
 }
 
-.THIS .caseHeader {
+.THIS .header {
     color: white;
     background-color: hsl(210, 11%, 30%);
     border-radius: 30px;
@@ -29,11 +57,11 @@
     height: 50px;
 }
 
-.THIS .caseCard {
+.THIS .card {
     max-width: 600px;
 }
 
-.THIS .createCase {
+.THIS .create {
     max-width: 600px;
     margin: 0 auto;
 }

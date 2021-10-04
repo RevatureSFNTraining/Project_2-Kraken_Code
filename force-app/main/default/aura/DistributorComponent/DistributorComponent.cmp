@@ -1,13 +1,19 @@
 <aura:component controller="DistributorController">
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+    
 
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
 
-    <div style="height: 300px">
-        <lightning:datatable
-                keyField="id"
+    <!--<div>-->
+        <lightning:datatable 
+                keyField="Id"
                 data="{! v.data }"
-                columns="{! v.columns }"/>
-    </div>
+                columns="{! v.columns }"
+                draftValues="{! v.draftValues }"
+                onsave="{! c.handleSaveEdition }"
+                />
+    <!--</div>-->
 </aura:component>

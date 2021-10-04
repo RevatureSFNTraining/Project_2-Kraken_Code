@@ -1,3 +1,3 @@
 <aura:application extends="force:SLDS">
-	<c:foodTable/>
+	<c:inventoryPage/>
 </aura:application>
