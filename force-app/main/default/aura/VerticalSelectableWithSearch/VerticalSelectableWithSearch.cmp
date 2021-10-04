@@ -7,7 +7,7 @@
     <lightning:card title="Accounts" class="slds-var-m-around_large slds-var-p-around_small slds-scrollable">
         <lightning:input class="slds-var-m-around_large" type="search" onchange="{!c.onSearchChanged}" placeholder="Quick Find" variant="label-hidden"/>       
         <lightning:verticalNavigation onselect="{!c.onNavChanged}" selectedItem="{!v.selectedItem}">
-            <aura:iteration items="{!!v.filteredAccounts.length ? v.accounts : v.filteredAccounts}" var="acc">
+            <aura:iteration items="{!v.filteredAccounts.length ? v.filteredAccounts : v.accounts}" var="acc">
                 <lightning:verticalNavigationItem label="{!acc.Name}" name="{!acc.Id}"/>
             </aura:iteration>            
         </lightning:verticalNavigation>

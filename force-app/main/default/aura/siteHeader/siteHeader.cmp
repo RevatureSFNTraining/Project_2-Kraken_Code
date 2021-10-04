@@ -13,6 +13,7 @@
             <lightning:menuItem value="Customers" label="Customers" />
             <lightning:menuItem value="Transactions" label="Transactions" />
             <lightning:menuItem value="Accounts" label="Accounts" />
+            <lightning:menuItem value="Employees" label="Employees"/>
         </lightning:buttonMenu>
     </div>
 </aura:component>

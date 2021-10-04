@@ -1,25 +1,19 @@
 public with sharing class HomePageController {
     
+    //gets current user name; for homepage custom welcome message
     @AuraEnabled
     public static string getUserName(){
-        try {
-            
-            return UserInfo.getName();
+        
+         return UserInfo.getName();
 
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
     }
 
+    //returns all open cases; used for homepage case management feature
     @AuraEnabled
     public static List<Case> fetchCases(){
-        try {
-
-            return [SELECT id, CaseNumber, AccountId, ContactPhone, Description FROM Case WHERE Status != 'Closed'];
+       
+        return [SELECT id, CaseNumber, AccountId, ContactPhone, Description FROM Case WHERE Status != 'Closed'];
             
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
     }
 
 }

@@ -14,7 +14,7 @@
 
     <lightning:card>
         <lightning:icon iconName="custom:custom15" size="small"/>
-    	<div class="slds-align-absolute-center">
+    	<div>
             <lightning:recordViewForm objectApiName="Employee__c" recordId="{!v.recordId}">
                 <lightning:outputField fieldName="Name"/>
                 <lightning:outputField fieldName="gender__c"/>
@@ -23,7 +23,8 @@
         </div>
     </lightning:card>
 	<lightning:recordEditForm aura:id="recordEditForm"
-                           objectApiName="Employee__c">
+                           objectApiName="Employee__c"
+                           class="slds-var-p-left_medium slds-var-p-right_medium">
         <lightning:messages />
         <lightning:inputField fieldName="Name" />
         <lightning:inputField fieldName="gender__c" />

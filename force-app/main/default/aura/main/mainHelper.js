@@ -1,12 +1,13 @@
 ({
 
     initializeSettings : function(component, event, helper) {
-
+        /*
         document.title = "The Restaürant";
         var meta = document.createElement("meta");
         meta.setAttribute("name", "viewport");
         meta.setAttribute("content", "width=device-width, initial-scale=1");
         document.getElementsByTagName('head')[0].appendChild(meta);
+        */
     },
 
 
@@ -64,5 +65,6 @@
                 component.set("v.isTransactions", false);
                 component.set("v.isAccounts", true);
         }
+
     }
 })

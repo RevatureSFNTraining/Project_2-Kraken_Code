@@ -20,6 +20,12 @@
                         <lightning:inputField fieldName="Name"/>
                         <lightning:inputField fieldName="Hired_On_Date__c" value="{!v.today}"/>
                         <lightning:inputField fieldName="Salary__c"/>
+                        <div class="slds-form-element slds-form-element_stacked">
+                            <label class="slds-form-element__label">Account</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" readonly="true" class="slds-input" value="{!v.account.Name}" />
+                            </div>
+                        </div>
                     </div>
                     <footer class="slds-modal__footer">
                         <lightning:button variant="neutral"

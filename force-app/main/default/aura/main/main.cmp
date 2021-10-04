@@ -1,6 +1,7 @@
 <aura:component implements="forceCommunity:themeLayout,forceCommunity:layout,forceCommunity:availableForAllPageTypes" access="global">
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="aura:locationChange" action="{!c.handleLocationChange}"/>
     <aura:handler name="pageChangeEvent" event="c:pageChangeEv" action="{!c.handlePageChange}"/>
     <aura:attribute name="isHome" type="Boolean" default="true"/>
     <aura:attribute name="isDistributors" type="Boolean" default="false"/>

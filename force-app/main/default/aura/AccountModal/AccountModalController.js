@@ -1,21 +1,14 @@
 ({
     init : function(component, event, helper) {
-        var today = $A.localizationService.formatDate(new Date(), "YYYY-MM-DD");
-        component.set("v.today", today);
+        helper.init(component);
     },
     cancel : function(component, event, helper) {
-        component.getEvent("closeAccountModal").fire();
+        helper.cancel(component);
     },
     onSuccess : function(component, event, helper) {
-        component.getEvent("closeAccountModal").fire();
-        let toast = $A.get("e.force:showToast");
-        if(toast){
-            toast.setParams({"message":"Employee created!"});
-            toast.fire();        
-        }
+        helper.onSuccess(component);
     },
     onSubmit : function(component, event, helper) {
-        let fields = event.getParam('fields');
-        fields.Account__c = component.get("v.account.Id");
+        helper.onSubmit(component, event);
     }
 })
