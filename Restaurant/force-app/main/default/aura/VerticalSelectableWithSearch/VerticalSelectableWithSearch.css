@@ -1,0 +1,10 @@
+.THIS {
+    max-height: 1000px;
+}
+
+@media screen and (max-width: 1024px) {
+    .THIS {
+        max-height: 300px;
+    }
+    
+}
