@@ -11,7 +11,7 @@
             <lightning:inputField fieldName="Phone"/>
             <lightning:inputField fieldName="Email"/>
             <lightning:inputField fieldName="AccountId" />
-            <lightning:button class="slds-m-top_small slds-align_absolute-center slds-button_success" type="submit" name="createContact" label="Create Customer" />
+            <lightning:button class="slds-m-top_small slds-align_absolute-center createCustomerButton" type="submit" name="createContact" label="Create Customer" />
         
         </lightning:recordEditForm>
    </div>

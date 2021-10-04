@@ -1,5 +1,5 @@
 .THIS {
-    background-color: #212529;
+    background-color: hsl(210, 11%, 15%);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,6 +20,22 @@
 
 .THIS button {
     margin-right: 1rem;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    color: hsl(210, 11%, 15%);
+}
+
+.THIS .menuItem {
+    color:hsl(210, 11%, 15%);
+}
+
+.THIS button:hover {
+    color:hsl(210, 11%, 25%);
+}
+
+.THIS button:focus {
+    color:hsl(210, 11%, 25%);
 }
 
 @keyframes App-logo-spin{

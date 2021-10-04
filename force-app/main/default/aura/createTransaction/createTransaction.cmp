@@ -18,7 +18,7 @@
                 <lightning:inputField fieldName="Tip_Amount__c" />
                 <lightning:inputField fieldName="Tip_Type__c" />
             </aura:if>
-            <lightning:button class="slds-m-top_small slds-align_absolute-center slds-button_success" type="submit" name="createTransaction" label="Create Transaction" />
+            <lightning:button class="slds-m-top_small slds-align_absolute-center createTransactionButton" type="submit" name="createTransaction" label="Create Transaction" />
            
         
         </lightning:recordEditForm>

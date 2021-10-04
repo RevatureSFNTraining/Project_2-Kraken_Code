@@ -1,16 +1,16 @@
-.THIS .deleteContactsButton {
+.THIS .deleteTransactionsButton {
     
     background-color: hsl(0, 100%, 35%);
     color: white
 }
 
-.THIS .deleteContactsButton:hover {
+.THIS .deleteTransactionsButton:hover {
     
     background-color: hsl(0, 100%, 45%);
     color: white
 }
 
-.THIS .deleteContactsButton:focus {
+.THIS .deleteTransactionsButton:focus {
     
     background-color: hsl(0, 100%, 45%);
     color: white

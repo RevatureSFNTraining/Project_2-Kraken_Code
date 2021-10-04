@@ -5,15 +5,15 @@
     <div id="header">
     	<h1>The Restaürant</h1>
         <img class="burger" src="{!$Resource.burger}" />
-        <lightning:buttonMenu aura:id="headerMenu" variant="border-filled" alternativeText="Show menu"
+        <lightning:buttonMenu aura:id="headerMenu" variant="container" alternativeText="Show menu"
             onselect="{! c.handleSelect }" menuAlignment="auto">
-            <lightning:menuItem value="Home" label="Home" />
-            <lightning:menuItem value="Distributors" label="Distributors" />
-            <lightning:menuItem value="Inventory" label="Inventory" />
-            <lightning:menuItem value="Customers" label="Customers" />
-            <lightning:menuItem value="Transactions" label="Transactions" />
-            <lightning:menuItem value="Accounts" label="Accounts" />
-            <lightning:menuItem value="Employees" label="Employees"/>
+            <lightning:menuItem class="menuItem" value="Home" label="Home" />
+            <lightning:menuItem class="menuItem" value="Distributors" label="Distributors" />
+            <lightning:menuItem class="menuItem" value="Inventory" label="Inventory" />
+            <lightning:menuItem class="menuItem" value="Customers" label="Customers" />
+            <lightning:menuItem class="menuItem" value="Transactions" label="Transactions" />
+            <lightning:menuItem class="menuItem" value="Accounts" label="Accounts" />
+            <lightning:menuItem class="menuItem" value="Employees" label="Employees"/>
         </lightning:buttonMenu>
     </div>
 </aura:component>

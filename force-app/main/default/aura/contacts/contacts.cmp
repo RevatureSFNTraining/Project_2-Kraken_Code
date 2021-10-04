@@ -10,7 +10,7 @@
 
     <div>
         <h1 class="slds-align_absolute-center slds-text-heading_large">Customers (Recent 100)</h1>
-        <lightning:button class="slds-m-vertical_medium slds-align_absolute-center slds-button_destructive" name="deleteContacts" label="Delete Selected Customers" onclick="{!c.deleteSelectedContacts}"/>
+        <lightning:button class="slds-m-vertical_medium slds-align_absolute-center deleteContactsButton" name="deleteContacts" label="Delete Selected Customers" onclick="{!c.deleteSelectedContacts}"/>
         <lightning:datatable
                         aura:id="contactsDataTable"
                         columns="{! v.columns }"

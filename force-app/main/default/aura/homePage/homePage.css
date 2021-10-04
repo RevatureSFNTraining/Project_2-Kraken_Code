@@ -2,11 +2,31 @@
 
     font-size: 1.2rem;
     font-weight: bold;
+    background-color: hsl(210, 11%, 25%);
+    color: white;
 }
 
 .THIS .infoHeader {
 
     font-size: 1rem;
+}
+
+.THIS .warningHeader {
+
+    background-color: hsl(0, 100%, 33%);
+    color: white;
+    border-radius: 30px;
+    max-width: 60%;
+    text-align: center;
+    padding: 5px
+}
+
+.THIS .caseHeader {
+    color: white;
+    background-color: hsl(210, 11%, 30%);
+    border-radius: 30px;
+    width: 150px;
+    height: 50px;
 }
 
 .THIS .caseCard {
@@ -16,4 +36,22 @@
 .THIS .createCase {
     max-width: 600px;
     margin: 0 auto;
+}
+
+.THIS .saveButton {
+
+    background-color: hsl(128, 100%, 30%);
+    color:white;
+}
+
+.THIS .saveButton:hover {
+
+    background-color: hsl(128, 100%, 40%);
+    color:white;
+}
+
+.THIS .saveButton:focus {
+
+    background-color: hsl(128, 100%, 40%);
+    color:white;
 }
