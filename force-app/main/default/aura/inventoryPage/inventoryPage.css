@@ -1,0 +1,20 @@
+#container.THIS
+{
+    background-color: rgb(100, 95, 105);
+}
+
+.THIS.slds-card
+{
+    background-color: blue;
+}
+
+.THIS .mainCard {
+    max-width: 800px;
+    padding: 0 50px;
+    display: block;
+}
+
+.THIS .mainDiv 
+{
+    display: block;
+}

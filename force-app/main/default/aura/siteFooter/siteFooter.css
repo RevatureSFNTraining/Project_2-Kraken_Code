@@ -1,0 +1,13 @@
+.THIS {
+}
+
+			footer.THIS {
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+  				text-align: center;
+  				padding: 3px;
+    			height:50px;
+  				background-color: rgb(33, 37, 41);
+  				color: white;
+			}

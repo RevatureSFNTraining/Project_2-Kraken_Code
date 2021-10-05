@@ -1,0 +1,6 @@
+<aura:component>
+    <aura:attribute name="account" type="Account" required="true"/>
+    <aura:attribute name="isActive" type="boolean" default="false"/>
+    <lightning:button aura:id="hiButton" class="{!v.isActive ?
+        'slds-nav-vertical__item slds-is-active' : 'slds-nav-vertical__item'}" variant="base" label="{!v.account.Name}" onclick="{! c.handleClick }"/>
+</aura:component>

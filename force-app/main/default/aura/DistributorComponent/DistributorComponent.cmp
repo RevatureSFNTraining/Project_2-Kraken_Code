@@ -1,0 +1,20 @@
+<aura:component controller="DistributorController">
+    <h1 class="slds-text-align_center">Distributor Contracts</h1>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+    
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
+
+    <!--<div>-->
+        <lightning:datatable 
+                keyField="Id"
+                data="{! v.data }"
+                columns="{! v.columns }"
+                draftValues="{! v.draftValues }"
+                onsave="{! c.handleSaveEdition }"
+                />
+    <!--</div>-->
+</aura:component>

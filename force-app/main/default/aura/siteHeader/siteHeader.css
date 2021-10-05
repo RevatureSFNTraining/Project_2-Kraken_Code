@@ -1,0 +1,48 @@
+.THIS {
+    background-color: hsl(210, 11%, 15%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.THIS .burger {
+    animation: App-logo-spin infinite 20s linear;
+    width: 50px;
+    margin: 1rem;
+}
+
+.THIS h1 {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.THIS button {
+    margin-right: 1rem;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    color: hsl(210, 11%, 15%);
+}
+
+.THIS .menuItem {
+    color:hsl(210, 11%, 15%);
+}
+
+.THIS button:hover {
+    color:hsl(210, 11%, 25%);
+}
+
+.THIS button:focus {
+    color:hsl(210, 11%, 25%);
+}
+
+@keyframes App-logo-spin{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

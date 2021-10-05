@@ -1,0 +1,45 @@
+<aura:component>
+    <aura:attribute name="isNewCustomer" type="String" default="true"/>
+    <div class="slds-m-vertical_xx-large slds-m-horizontal_small mainDiv">
+        
+      
+        <h2 class="infoHeader">Log new customers or create transactions</h2>
+
+        <lightning:card class="slds-align_absolute-center slds-m-bottom_xx-large mainCard">
+        
+            <div id="isCustomerDecision" class="slds-align_absolute-center slds-m-bottom_small" >
+                <lightning:button aura:id="true" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center decisionButton" name="newCustomer" label="New Customer" />
+                <lightning:button aura:id="false" onclick="{!c.handleDecision}" class="slds-m-top_small slds-align_absolute-center decisionButton" name="newTransaction" label="New Transaction" />
+            </div>
+
+            <aura:if isTrue="{!v.isNewCustomer}">
+                <c:createContact />
+                <aura:set attribute="else">
+                    <c:createTransaction />
+                </aura:set>
+            </aura:if> 
+
+        </lightning:card>
+       
+        <h2 class="infoHeader">Delete just one record or up to 100 at a time</h2>
+
+        
+        <div class="slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_xx-large">
+                <lightning:card class="dataTableCard">
+                    <c:contacts />
+                </lightning:card>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_xx-large">
+                <lightning:card class="dataTableCard">
+                    <c:transactionsDataTable />
+                </lightning:card>
+            </div>
+    
+            
+        </div>
+        
+      
+    </div>
+</aura:component>

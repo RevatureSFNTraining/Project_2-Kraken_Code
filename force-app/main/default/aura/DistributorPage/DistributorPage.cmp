@@ -1,0 +1,10 @@
+<aura:component>
+    <div class="slds-m-around_xx-large">
+		<div class="slds-border_left slds-border_right slds-border_top slds-border_bottom">
+        	<c:DistributorComponent/>
+        </div>
+        <div class="slds-border_left slds-border_right slds-border_top slds-border_bottom">
+    		<c:CSVDisConDownload/>
+        </div>
+    </div>
+</aura:component>

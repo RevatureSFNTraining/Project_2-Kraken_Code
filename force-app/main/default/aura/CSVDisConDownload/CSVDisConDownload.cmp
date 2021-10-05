@@ -1,0 +1,69 @@
+<aura:component controller="DistributorController">          
+    <!--aura init handler , call js "loadDCList" function on component load, and display data on table-->   
+    <aura:handler name="init" value="{!this}" action="{!c.loadDCList}"/> 
+    
+    <!--Declare Attribute for List-->  
+    <aura:attribute name="ListOfDC" type="object[]"/> 
+    
+ <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component--> 
+  <div class="slds-m-around--xx-large">   
+    <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download As CSV</button> <br/><br/>
+ 
+<!--HTML table display-->
+<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+  <thead>
+    <tr class="slds-text-title--caps">
+        <th class="slds-is-sortable slds-text-title--caps" scope="col">
+            <span class="slds-truncate" title="Distributor">Distributor</span>  
+         </th>
+       
+        <th class="slds-is-sortable slds-text-title--caps" scope="col">
+          <span class="slds-truncate" title="Invoice Number">Invoice Number</span>  
+       </th>
+        
+       <th class="slds-is-sortable slds-text-title--caps" scope="col">
+          <span class="slds-truncate" title="Created Date">Created Date</span>
+       </th>
+        
+      <th class="slds-is-sortable slds-text-title--caps" scope="col">
+          <span class="slds-truncate" title="Cost">Cost</span>
+       </th>
+        
+      <th scope="col">
+        <div class="slds-truncate" title="Store">Store</div>
+      </th>
+    </tr>
+  </thead>
+    <!--table body start, 
+      Iterate list as a <tr>
+     -->
+  <tbody>
+    <aura:iteration items="{!v.ListOfDC}" var="dc">  
+    <tr>
+      <th scope="row">
+          <div class="slds-truncate" title="{!dc.Name}">{!dc.Name}</div>
+      </th>
+
+      <th scope="row">
+        <div class="slds-truncate" title="{!dc.Distribution_Contract__r.ID__c}">{!dc.Distribution_Contract__r.ID__c}</div>
+      </th>
+        
+      <th scope="row">
+        <div class="slds-truncate" title="{!dc.Distribution_Contract__r.CreatedDate}">{!dc.Distribution_Contract__r.CreatedDate}</div>
+      </th>
+        
+       <th scope="row">
+        <div class="slds-truncate" title="{!dc.Distribution_Contract__r.Cost__c}" type="currency">{!dc.Distribution_Contract__r.Cost__c}</div>
+      </th>
+        
+       <th scope="row">
+        <div class="slds-truncate" title="{!dc.Account__r.Name}">{!dc.Account__r.Name}</div>
+      </th> 
+    </tr>
+       
+    </aura:iteration>
+    
+  </tbody>
+</table> 
+    </div>
+</aura:component>

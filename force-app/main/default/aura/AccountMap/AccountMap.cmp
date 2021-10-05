@@ -1,0 +1,7 @@
+<aura:component>
+    <aura:attribute name="account" type="Account"/>
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <lightning:card title="Account Location" class="slds-var-m-around_large slds-var-p-around_small">
+        <lightning:map class="slds-scrollable" aura:id="mappy" mapMarkers="[]" zoomLevel="16"/>
+    </lightning:card>
+</aura:component>

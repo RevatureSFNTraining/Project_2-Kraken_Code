@@ -1,0 +1,30 @@
+<aura:component>
+    <aura:attribute name="account" type="Account"/>
+    <aura:registerEvent name="openAccountModal" type="c:OpenAccountModal"/>
+    <lightning:card title="Account Info" class="slds-var-p-around_small slds-var-m-around_large">
+        <div class="slds-grid">
+            <div class="slds-col slds-text-align_center">
+                <p>Name</p>
+                <p>{!v.account.Name}</p>                
+            </div>
+            <div class="slds-col slds-text-align_center">
+                <p>Phone</p>
+                <lightning:formattedPhone value="{!v.account.Phone}"/>
+
+            </div>
+            <div class="slds-col slds-text-align_center">
+                <p>Address</p>
+                <lightning:formattedAddress 
+                    city="{!v.account.BillingCity}" 
+                    country="{!v.account.BillingCountry}"
+                    street="{!v.account.BillingStreet}"
+                    province="{!v.account.BillingState}"
+                    postalCode="{!v.account.BillingPostalCode}"
+                />
+            </div>
+        </div>            
+        <div class="slds-text-align_center slds-var-m-top_large">
+            <lightning:button variant="brand" label="Create Employee" disabled="{!!v.account}" onclick="{!c.openModal}"/>
+        </div>
+    </lightning:card>
+</aura:component>

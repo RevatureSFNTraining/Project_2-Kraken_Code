@@ -1,0 +1,63 @@
+<aura:component controller="LeadManagementController">
+
+    <aura:attribute name="openLeads" type="Case[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <h2 class="infoHeader header slds-align_absolute-center slds-m-vertical_large">Create a lead:</h2>
+    <div class="create">
+        <lightning:card class="slds-p-horizontal_medium">
+            <lightning:recordEditForm objectApiName="Lead" onsuccess="{!c.reDrawLeads}">
+                        <lightning:messages />
+                        <lightning:inputField fieldName="Name" />
+                        <lightning:inputField fieldName="Company" />
+                        <lightning:inputField fieldName="Description" />
+                        <lightning:inputField fieldName="Email" />
+                        <lightning:inputField fieldName="Status" />
+                        <lightning:inputField fieldName="Phone" />
+                        <lightning:inputField fieldName="Website" />
+                        <div class="slds-var-m-top_medium">
+                            <lightning:button
+                                type="submit"
+                                class="slds-align_absolute-center saveButton"
+                                label="Save">
+                            </lightning:button>
+                        </div>
+            </lightning:recordEditForm>
+        </lightning:card>
+    </div>
+    
+    
+    <h2 class="infoHeader header slds-align_absolute-center slds-m-vertical_large">Open Leads:</h2>
+
+        <div class="slds-grid slds-gutters slds-wrap slds-align_absolute-center">
+            <aura:iteration items="{!v.openLeads}" var="lead">
+                <div class="slds-col slds-small-size_6-of-12 slds-medium-size_1-of-3 slds-m-bottom_medium">
+                    <lightning:card class="slds-p-horizontal_small">
+                    
+                        
+                        <lightning:recordEditForm objectApiName="Lead" recordId="{!lead.Id}" onsuccess="{!c.reDrawLeads}">
+                        <lightning:messages />
+                        <lightning:inputField fieldName="Name" />
+                        <lightning:inputField fieldName="Company" />
+                        <lightning:inputField fieldName="Description" />
+                        <lightning:inputField fieldName="Email" />
+                        <lightning:inputField fieldName="Status" />
+                        <lightning:inputField fieldName="Phone" />
+                        <lightning:inputField fieldName="Website" />
+                        <div class="slds-var-m-top_medium">
+                            <lightning:button
+                                type="submit"
+                                class="slds-align_absolute-center saveButton"
+                                label="Save">
+                            </lightning:button>
+                        </div>
+                        </lightning:recordEditForm>
+                    
+                    </lightning:card>
+                </div>
+            </aura:iteration>
+        </div>
+            
+       
+    
+</aura:component>
