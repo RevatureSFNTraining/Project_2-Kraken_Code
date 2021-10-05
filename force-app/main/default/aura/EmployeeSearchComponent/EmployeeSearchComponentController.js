@@ -1,10 +1,11 @@
 ({
 	doInit : function(component, event, helper) {
         component.set('v.columns', [
-            {label: 'Name', fieldName:'Name',sortable:true,type:'text', initialWidth: 400},
-            {label: 'Gender', fieldName:'gender__c',sortable:false,type:'text', initialWidth: 300},
-            {label: 'Email', fieldName:'email__c',sortable:true,type:'text', initialWidth: 300},
-            {label: 'Hired On Date', fieldName:'Hired_On_Date__c',sortable:true,type:'text', initialWidth: 400}
+            {label: 'Name', fieldName:'Name',sortable:true,type:'text', initialWidth: 200},
+            {label: 'Gender', fieldName:'Gender__c',sortable:false,type:'text', initialWidth: 200},
+            {label: 'Email', fieldName:'Email__c',sortable:true,type:'email', initialWidth: 200},
+            {label: 'Hired On Date', fieldName:'Hired_On_Date__c',sortable:true,type:'date', initialWidth: 200},
+            {label: 'Phone Number', fieldName:'Phone__c',sortable:true,type:'phone', initialWidth: 200}
         ]);
         helper.getEmployees(component, helper);
     },

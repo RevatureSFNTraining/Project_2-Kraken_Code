@@ -42,12 +42,7 @@
         $A.get('e.force:refreshView').fire();
     },
     
-    isRefreshed: function(component, event, helper) {
-        location.reload();
-    },
-    
     sortData: function (component, fieldName, sortDirection) {
-        //var fname = fieldName;
         var data = component.get("v.fdata");
         var reverse = sortDirection !== 'asc';
         data.sort(this.sortBy(fieldName, reverse))

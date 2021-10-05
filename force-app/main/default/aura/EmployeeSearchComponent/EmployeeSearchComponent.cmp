@@ -5,20 +5,21 @@
     <aura:attribute name="sortedBy" type="String" default="Name"/>
     <aura:attribute name="sortedDirection" type="string" default="asc" />
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
-    <div class="slds-var-p-left_large">
+    <div class="slds-var-p-left_medium slds-var-p-right_medium">
         <div class="EmpSearch">
             <lightning:input type="search" label="Search" placeholder="Search Employees" aura:id="SearchBox"
                             onchange="{!c.searchTable}" />
         </div>
-        <lightning:layout multipleRows="true" horizontalAlign="center">
+        <lightning:layout multipleRows="true" horizontalAlign="center" verticalAlign="center">
                 <lightning:layoutItem padding="around-small" size="12">
-                    <div style="width: 3300 px">
+                    <div style="width: 3000 px">
                         <lightning:datatable keyField="id" data="{! v.recordList}"
                                                 columns="{! v.columns}"
                                                 hideCheckboxColumn="true"
                                                 onsort="{!c.updateSorting}"
                                                 sortedBy="{!v.sortedBy}"
-                                                sortedDirection="{!v.sortedDirection}"  />
+                                                sortedDirection="{!v.sortedDirection}"
+                                                maxColumnWidth="200"  />
                     </div>
                 </lightning:layoutItem>
         </lightning:layout>

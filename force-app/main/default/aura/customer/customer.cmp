@@ -1,50 +1,70 @@
 <aura:component controller="ContactTableController"  implements="flexipage:availableForAllPageTypes,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName">
-    
-    <aura:attribute name="fdata" type="Object"/>
-    <aura:attribute name="data" type="Object"/>
-    <aura:attribute name="columns" type="List"/>
-    <aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
-    <aura:attribute name="errors" type="Object" default="[]"/>
-    <aura:attribute name="draftValues" type="Object" default="[]"/>
-    <aura:attribute name="sortedBy" type="String" default="Name"/>
-    <aura:attribute name="sortedDirection" type="string" default="asc"/>
-    
-    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
-    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
-    
-    <div class="slds-p-around_medium">
-        <h1 class="slds-text-heading_large">Customers</h1>
-    </div>
-    
-    <div>
+
+<aura:attribute name="fdata" type="Object"/>
+<aura:attribute name="data" type="Object"/>
+<aura:attribute name="columns" type="List"/>
+<aura:attribute name="fields" type="String[]" default="['Name','Phone','Email']" />
+<aura:attribute name="errors" type="Object" default="[]"/>
+<aura:attribute name="draftValues" type="Object" default="[]"/>
+<aura:attribute name="sortedBy" type="String" default="Name"/>
+<aura:attribute name="sortedDirection" type="string" default="asc"/>
+
+<aura:handler name="init" value="{! this }" action="{! c.init }"/>
+<aura:handler event="force:refreshView" action="{!c.init}" />
+
+<div class="slds-p-around_medium">
+    <h1 class="slds-text-heading_large">Customers</h1>
+</div>
+
+    <div class="slds-section slds-is-closed" aura:id="contactSection">
         <lightning:recordEditForm aura:id="recordEditForm"
-                                  objectApiName="Contact"
-                                  onsuccess ="{!c.handlesuccess}">
-            <lightning:messages />
-            <lightning:inputField fieldName="Name" />
-            <lightning:inputField fieldName="Phone" />
-            <lightning:inputField fieldName="Email" />
-            <lightning:button class="slds-m-top_small" type="submit" label="Create new"/>
+                                objectApiName="Contact"
+                                onsuccess ="{!c.handlesuccess}">
+    
+    <h2 class="slds-section__title">
+        <button aria-controls="contactList" class="slds-button slds-section__title-action">
+            <span onclick="{!c.toggleSection}" data-auraId="contactSection">
+                <lightning:icon iconName="utility:switch"
+                                size="x-small"
+                                class="slds-section__title-action-icon slds-button__icon_left"
+                                alternativeText="button icon" 
+                                />
+            </span>
+            <span class="slds-truncate" title="Customers">Create New Customer</span>
+        </button>
+    </h2>
+    
+    <div class="slds-section__content" id="fieldList">
+        <lightning:inputField fieldName="Name" />
+        <lightning:inputField fieldName="Phone" />
+        <lightning:inputField fieldName="Email" />
+        <div class="slds-align_absolute-center">
+        <lightning:button class="slds-m-top_small" type="submit" label="Create new" variant="brand"/>
+    </div>
+    </div>
+            
         </lightning:recordEditForm>
-    </div>
-    
-    <div style="height: 300px">>
-        <span>
-            <lightning:input type="search" lable="Search" placeholder="Search Customers" aura:id="SearchBox"
-                             onchange="{!c.searchTable}" />
-        </span>
-        <lightning:datatable aura:id="dtTable"
-                             columns="{! v.columns }"
-                             data="{! v.fdata }"
-                             keyField="Id"
-                             errors="{! v.errors }"
-                             draftValues="{! v.draftValues }"
-                             onsave="{! c.handleSaveEdition }"
-                             onrowaction="{!c.handleRowAction}"
-                             hideCheckboxColumn="true"
-                             onsort="{!c.updateSorting}"
-                             sortedBy="{!v.sortedBy}"
-                             sortedDirection="{!v.sortedDirection}"/>
-    </div>
-    
+</div>
+
+<br/>
+
+<div style="height: 300px">>
+    <span>
+        <lightning:input type="search" lable="Search" placeholder="Search Customers" aura:id="SearchBox"
+                            onchange="{!c.searchTable}" />
+    </span>
+    <lightning:datatable aura:id="dtTable"
+                            columns="{! v.columns }"
+                            data="{! v.fdata }"
+                            keyField="Id"
+                            errors="{! v.errors }"
+                            draftValues="{! v.draftValues }"
+                            onsave="{! c.handleSaveEdition }"
+                            onrowaction="{!c.handleRowAction}"
+                            hideCheckboxColumn="true"
+                            onsort="{!c.updateSorting}"
+                            sortedBy="{!v.sortedBy}"
+                            sortedDirection="{!v.sortedDirection}"/>
+</div>
+
 </aura:component>

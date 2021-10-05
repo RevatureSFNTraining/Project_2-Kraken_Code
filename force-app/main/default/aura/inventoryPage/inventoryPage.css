@@ -7,3 +7,14 @@
 {
     background-color: blue;
 }
+
+.THIS .mainCard {
+    max-width: 800px;
+    padding: 0 50px;
+    display: block;
+}
+
+.THIS .mainDiv 
+{
+    display: block;
+}

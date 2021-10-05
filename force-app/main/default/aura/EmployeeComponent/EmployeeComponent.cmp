@@ -21,13 +21,25 @@
                             <lightning:icon iconName="custom:custom15" size="small"/>
                             Employee Information
                         </div>            
-                        <div class="slds-media__body">
+                        <div class="slds-list_vertical slds-has-dividers_top-space">
                             <lightning:recordViewForm objectApiName="Employee__c" recordId="{!v.recordId}">
-                                <lightning:outputField fieldName="Name"/>        
-                                <lightning:outputField fieldName="Gender__c"/>
-                                <lightning:outputField fieldName="Phone__c"/>
-                                <lightning:outputField fieldName="Email__c"/>
-                                <lightning:outputField fieldName="Hired_On_Date__c"/>
+                                <lightning:layout multipleRows="true">
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Name"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Gender__c"/>
+                                    </lightning:layoutItem>       
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Phone__c"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Email__c"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Hired_On_Date__c"/>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
                             </lightning:recordViewForm>
                         </div>
                     </header>
