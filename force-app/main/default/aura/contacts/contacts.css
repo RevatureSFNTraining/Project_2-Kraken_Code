@@ -1,0 +1,17 @@
+.THIS .deleteContactsButton {
+    
+    background-color: hsl(0, 100%, 35%);
+    color: white
+}
+
+.THIS .deleteContactsButton:hover {
+    
+    background-color: hsl(0, 100%, 45%);
+    color: white
+}
+
+.THIS .deleteContactsButton:focus {
+    
+    background-color: hsl(0, 100%, 45%);
+    color: white
+}

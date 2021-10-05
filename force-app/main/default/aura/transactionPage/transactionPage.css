@@ -1,0 +1,40 @@
+.THIS .decisionButton {
+     background-color: hsl(210, 11%, 25%);
+     color:white;
+     white-space:nowrap;
+     height: 50px;
+     width: 100%;
+}
+
+.THIS .infoHeader {
+
+     background-color: hsl(210, 11%, 25%);
+     border-radius: 30px;
+     padding: 8px;
+     color: white;
+     text-align: center;
+     font-size: 1rem;
+     max-width: 60%;
+     margin: 5vh auto;
+}
+
+.THIS .decisionButton:hover {
+     background-color: hsl(210, 11%, 15%);
+     color:white;
+}
+
+.THIS .decisionButton:focus {
+     background-color: hsl(210, 11%, 15%);
+     color:white;
+     border: none;
+}
+
+.THIS .mainCard {
+     max-width: 800px;
+     padding: 0 50px;
+     display: block;
+}
+
+.THIS .mainDiv {
+     display: block;
+}

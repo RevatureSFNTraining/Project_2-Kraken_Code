@@ -1,0 +1,15 @@
+<aura:component controller="AuraAccountController">
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:attribute name="filteredAccounts" type="Account[]"/>
+    <aura:attribute name="selectedItem" type="String"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:registerEvent name="updateSelectedAccount" type="c:SelectedAccountUpdate"/>
+    <lightning:card title="Accounts" class="slds-var-m-around_large slds-var-p-around_small slds-scrollable">
+        <lightning:input class="slds-var-m-around_large" type="search" onchange="{!c.onSearchChanged}" placeholder="Quick Find" variant="label-hidden"/>       
+        <lightning:verticalNavigation onselect="{!c.onNavChanged}" selectedItem="{!v.selectedItem}">
+            <aura:iteration items="{!v.filteredAccounts.length ? v.filteredAccounts : v.accounts}" var="acc">
+                <lightning:verticalNavigationItem label="{!acc.Name}" name="{!acc.Id}"/>
+            </aura:iteration>            
+        </lightning:verticalNavigation>
+    </lightning:card>  
+</aura:component>

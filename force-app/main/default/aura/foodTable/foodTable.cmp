@@ -1,0 +1,32 @@
+<aura:component controller='FoodController' >
+	<!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name='draftValues' type='Object' default='[]'/>
+
+    <!-- handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:foodRecordSave" action='{!c.filterChange}'/>
+    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
+   
+
+    <lightning:select aura:id="select" name="select" label="Filter By:" onchange="{!c.filterChange}">
+        <option value="">choose one...</option>
+        <option value="food">Food Name</option>
+        <option value="store">Store</option>
+        <option value="stock">Stock</option>
+    </lightning:select>
+
+    <h1 class="slds-text-heading_large slds-align_absolute-center">Store Inventories</h1>
+
+    <lightning:datatable
+            aura:id='foodDataTable'
+            keyField="Id"
+            data="{!v.data}"
+            columns="{!v.columns}"
+            hideCheckboxColumn="true"
+            draftValues="{!v.draftValues}"
+            onsave="{!c.handleTableSave}"
+            />
+  
+</aura:component>

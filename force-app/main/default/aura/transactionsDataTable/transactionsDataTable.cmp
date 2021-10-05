@@ -1,0 +1,27 @@
+<aura:component controller="transactionsDataTable" implements="force:appHostable,flexipage:availableForAllPageTypes">
+	<aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+	<aura:attribute name="selectedRows" type="Object[]"/>
+    <aura:attribute name="rows" type="Object[]"/>
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:newTransaction" action="{!c.handleEvents}"/>
+    <aura:handler event="c:contactDeletionEvent" action="{!c.handleEvents}"/>
+    
+
+
+    <div>
+        <h1 class="slds-text-heading_large slds-align_absolute-center">Transactions (Recent 100)</h1>
+        <lightning:button class="slds-m-vertical_medium slds-align_absolute-center deleteTransactionsButton" name="deleteTransactions" label="Delete Selected Transactions" onclick="{!c.deleteSelectedTransactions}"/>
+        <lightning:datatable
+                         columns="{! v.columns }"
+                         data="{! v.data }"
+                         keyField="id"
+                         selectedRows="{!v.rows}"
+                         onrowselection="{!c.storeRows}"
+                         />
+    </div>
+
+    
+    
+   
+</aura:component>

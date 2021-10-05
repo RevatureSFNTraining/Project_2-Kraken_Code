@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+
+    <aura:registerEvent name="newContact" type="c:newContact"/>
+    <aura:attribute name="hide" type="string" default="false"/>
+
+    <div class="slds-m-bottom_medium">
+        <lightning:recordEditForm objectApiName="Contact"  onsuccess="{!c.handleSuccess}">
+            
+            <lightning:messages />
+            <lightning:inputField fieldName="Name"/>
+            <lightning:inputField fieldName="Phone"/>
+            <lightning:inputField fieldName="Email"/>
+            <lightning:inputField fieldName="AccountId" />
+            <lightning:button class="slds-m-top_small slds-align_absolute-center createCustomerButton" type="submit" name="createContact" label="Create Customer" />
+        
+        </lightning:recordEditForm>
+   </div>
+    
+</aura:component>

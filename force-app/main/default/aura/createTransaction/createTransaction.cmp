@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+
+    <aura:registerEvent name="newTransaction" type="c:newTransaction"/>
+    <aura:attribute name="hide" type="string" default="false"/>
+
+    <div class="slds-m-bottom_medium">
+        <lightning:recordEditForm objectApiName="Transaction__c"  onsuccess="{!c.handleSuccess}">
+            
+           
+            <lightning:messages />
+   
+            <lightning:inputField fieldName="Contact__c"/>
+            <lightning:inputField fieldName="Employee__c"/>
+            <lightning:inputField fieldName="Meal__c"/>
+            <lightning:inputField fieldName="Sale_Price__c" />
+            <lightning:inputField aura:id="checkBox" fieldName="Tip__c" onchange="{!c.disableAmount}"/>
+            <aura:if isTrue="{!v.hide}">
+                <lightning:inputField fieldName="Tip_Amount__c" />
+                <lightning:inputField fieldName="Tip_Type__c" />
+            </aura:if>
+            <lightning:button class="slds-m-top_small slds-align_absolute-center createTransactionButton" type="submit" name="createTransaction" label="Create Transaction" />
+           
+        
+        </lightning:recordEditForm>
+   </div>
+    
+</aura:component>

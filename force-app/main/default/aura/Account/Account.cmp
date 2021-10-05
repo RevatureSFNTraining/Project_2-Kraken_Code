@@ -1,0 +1,17 @@
+<aura:component >
+    <aura:attribute name="selectedAccount" type="Account"/>
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:handler name="updateSelectedAccount" event="c:SelectedAccountUpdate" action="{!c.onNavChanged}"/>
+    <aura:handler name="openAccountModal" event="c:OpenAccountModal" action="{!c.openModal}"/>
+    <aura:handler name="closeAccountModal" event="c:OpenAccountModal" action="{!c.closeModal}"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-large-size_3-of-12" >
+            <c:VerticalSelectableWithSearch/>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">
+            <c:AccountInfo account="{!v.selectedAccount}"/>
+            <c:AccountMap account="{!v.selectedAccount}"/>
+        </div>
+    </div>
+    <c:AccountModal isModalOpen="{!v.isModalOpen}" account="{!v.selectedAccount}"/>
+</aura:component>

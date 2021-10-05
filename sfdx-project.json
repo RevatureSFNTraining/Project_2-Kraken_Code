@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "P2",
+  "namespace": "",
+  "sfdcLoginUrl": "https://empathetic-raccoon-ejhl8e-dev-ed.my.salesforce.com",
+  "sourceApiVersion": "52.0"
+}

@@ -1,0 +1,27 @@
+<aura:component controller="contactsController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRows" type="Object[]"/>
+    <aura:attribute name="rows" type="Object[]"/>
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="c:newContact" action="{!c.handleNewContact}"/>
+    <aura:registerEvent name="contactDeletion" type="c:contactDeletionEvent"/>
+
+
+    <div>
+        <h1 class="slds-align_absolute-center slds-text-heading_large">Customers (Recent 100)</h1>
+        <lightning:button class="slds-m-vertical_medium slds-align_absolute-center deleteContactsButton" name="deleteContacts" label="Delete Selected Customers" onclick="{!c.deleteSelectedContacts}"/>
+        <lightning:datatable
+                        aura:id="contactsDataTable"
+                        columns="{! v.columns }"
+                        data="{! v.data }"
+                        keyField="id"
+                        selectedRows="{!v.rows}"
+                        onrowselection="{!c.storeRows}"
+                        class="dataTable"
+                        />
+    </div>
+    
+    
+    
+</aura:component>
