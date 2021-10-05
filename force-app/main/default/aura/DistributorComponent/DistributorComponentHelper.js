@@ -8,11 +8,10 @@
                 var rows = yay.getReturnValue();
                 for (var i = 0; i < rows.length; i++) {
                     var row = rows[i];
-                    if(row.Distributor__r){
-                        row.Distributor__rName = row.Distributor__r.Name; 
-                        row.Distributor__rPrimary_Email__c = row.Distributor__r.Primary_Email__c; 
-                        row.Distributor__rAdditional_Email__c = row.Distributor__r.Additional_Email__c; 
-                        row.Distributor__rPhone__c = row.Distributor__r.Phone__c;
+                    if(row.Distribution_Contract__r){
+                        row.Distribution_Contract__rID__c=row.Distribution_Contract__r.ID__c, 
+                        row.Distribution_Contract__rCost__c = row.Distribution_Contract__r.Cost__c
+                        row.Distribution_Contract__rCreatedDate = row.Distribution_Contract__r.CreatedDate; 
                     }
                     if (row.Account__r) {
                         row.Account__rName = row.Account__r.Name;
@@ -81,4 +80,13 @@
         $A.enqueueAction(method);
     },
 
+    showToast : function(params){
+        var toastEvent = $A.get("e.force:showToast");
+        if(toastEvent){
+            toastEvent.setParams(params);
+            toastEvent.fire();
+        } else{
+            alert(params.message);
+        }
+    },
 })

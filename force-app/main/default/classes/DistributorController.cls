@@ -1,17 +1,17 @@
 global class DistributorController {
     @AuraEnabled
-    public static list<Distribution_Contract__c> getTheFrigginData(){
+    public static list<Distributor__c> getTheFrigginData(){
         
         return [SELECT 
-                Distributor__r.Name, 
-                Distributor__r.Primary_Email__c, 
-                Distributor__r.Additional_Email__c, 
-                Distributor__r.Phone__c, 
-                ID__c, 
-                Cost__c, 
-                CreatedDate,
+                Name, 
+                Primary_Email__c, 
+                Additional_Email__c, 
+                Phone__c, 
+                Distribution_Contract__r.ID__c, 
+                Distribution_Contract__r.Cost__c, 
+                Distribution_Contract__r.CreatedDate,
                 Account__r.Name 
-            FROM Distribution_Contract__c];
+            FROM Distributor__c WHERE Distribution_Contract__r.ID__c != null];
     }
 
     @AuraEnabled
@@ -20,6 +20,7 @@ global class DistributorController {
             update disCon;
             return true;
         } catch (Exception e) {
+            system.debug(e);
             return false;
         }
     }

@@ -10,7 +10,7 @@
     <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download As CSV</button> <br/><br/>
  
 <!--HTML table display-->
-<table class="slds-table slds-table--bordered slds-table--cell-buffer slds-border_left slds-border_right slds-border_top slds-border_bottom">
+<table class="slds-table slds-table--bordered slds-table--cell-buffer">
   <thead>
     <tr class="slds-text-title--caps">
         <th class="slds-is-sortable slds-text-title--caps" scope="col">
@@ -41,19 +41,19 @@
     <aura:iteration items="{!v.ListOfDC}" var="dc">  
     <tr>
       <th scope="row">
-          <div class="slds-truncate" title="{!dc.Distributor__r.Name}">{!dc.Distributor__r.Name}</div>
+          <div class="slds-truncate" title="{!dc.Name}">{!dc.Name}</div>
       </th>
 
       <th scope="row">
-        <div class="slds-truncate" title="{!dc.ID__c}">{!dc.ID__c}</div>
+        <div class="slds-truncate" title="{!dc.Distribution_Contract__r.ID__c}">{!dc.Distribution_Contract__r.ID__c}</div>
       </th>
         
       <th scope="row">
-        <div class="slds-truncate" title="{!dc.CreatedDate}">{!dc.CreatedDate}</div>
+        <div class="slds-truncate" title="{!dc.Distribution_Contract__r.CreatedDate}">{!dc.Distribution_Contract__r.CreatedDate}</div>
       </th>
         
        <th scope="row">
-        <div class="slds-truncate" title="{!dc.Cost__c}" type="currency">{!dc.Cost__c}</div>
+        <div class="slds-truncate" title="{!dc.Distribution_Contract__r.Cost__c}" type="currency">{!dc.Distribution_Contract__r.Cost__c}</div>
       </th>
         
        <th scope="row">

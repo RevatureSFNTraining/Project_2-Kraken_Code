@@ -24,6 +24,7 @@
                 component.set("v.isCustomers", false);
                 component.set("v.isTransactions", false);
                 component.set("v.isAccounts", false);
+                component.set("v.isEmployees", false);
                 break;
             case 'Distributors':
                 component.set("v.isHome", false);
@@ -32,6 +33,7 @@
                 component.set("v.isCustomers", false);
                 component.set("v.isTransactions", false);
                 component.set("v.isAccounts", false);
+                component.set("v.isEmployees", false);
                 break;
             case 'Inventory':
                 component.set("v.isHome", false);
@@ -40,6 +42,7 @@
                 component.set("v.isCustomers", false);
                 component.set("v.isTransactions", false);
                 component.set("v.isAccounts", false);
+                component.set("v.isEmployees", false);
                 break;
             case 'Customers':
                 component.set("v.isHome", false);
@@ -48,6 +51,7 @@
                 component.set("v.isCustomers", true);
                 component.set("v.isTransactions", false);
                 component.set("v.isAccounts", false);
+                component.set("v.isEmployees", false);
                 break;
             case 'Transactions':
                 component.set("v.isHome", false);
@@ -56,6 +60,7 @@
                 component.set("v.isCustomers", false);
                 component.set("v.isTransactions", true);
                 component.set("v.isAccounts", false);
+                component.set("v.isEmployees", false);
                 break;
             case 'Accounts':
                 component.set("v.isHome", false);
@@ -64,6 +69,16 @@
                 component.set("v.isCustomers", false);
                 component.set("v.isTransactions", false);
                 component.set("v.isAccounts", true);
+                component.set("v.isEmployees", false);
+                break;
+            case 'Employees':
+                component.set("v.isHome", false);
+                component.set("v.isDistributors", false);
+                component.set("v.isInventory", false);
+                component.set("v.isCustomers", false);
+                component.set("v.isTransactions", false);
+                component.set("v.isAccounts", false); 
+                component.set("v.isEmployees", true);
         }
 
     }

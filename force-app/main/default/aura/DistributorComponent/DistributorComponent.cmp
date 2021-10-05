@@ -1,4 +1,5 @@
 <aura:component controller="DistributorController">
+    <h1 class="slds-text-align_center">Distributor Contracts</h1>
     <aura:attribute name="data" type="Object"/>
     <aura:attribute name="columns" type="List"/>
     <aura:attribute name="draftValues" type="Object" default="[]"/>

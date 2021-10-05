@@ -111,29 +111,5 @@
 			refreshEvent.fire();
 		}
 	}
-
-	/*
-	//if update is successful
-                if(res.getReturnValue() === true)
-				{
-                    helper.showToast({
-                        "title": "Record Update",
-                        "type": "success",
-                        //"message": totalRecordEdited + " Account Records Updated"
-						"message": editedRecords
-                    });
-                    helper.reloadDataTable();
-					//helper.getControllerData(cmp);
-                } 
-				//if update got failed
-				else
-				{ 
-                    helper.showToast({
-                        "title": "Error!!",
-                        "type": "error",
-                        "message": "Error in update"
-                    });
-                }
-	*/
 	
 })

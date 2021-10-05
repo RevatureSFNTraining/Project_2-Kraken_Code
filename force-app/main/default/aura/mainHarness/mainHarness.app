@@ -8,6 +8,8 @@
     <aura:attribute name="isCustomers" type="Boolean" default="false"/>
     <aura:attribute name="isTransactions" type="Boolean" default="false"/>
     <aura:attribute name="isAccounts" type="Boolean" default="false"/>
+    <aura:attribute name="isEmployeeCard" type="Boolean" default="false"/>
+    <aura:attribute name="isEmployeeSearch" type="Boolean" default="false"/>
 <div class="pc">
     <div class="cc">
 
@@ -43,6 +45,14 @@
     <aura:if isTrue="{!v.isAccounts}">
       
         <c:Account/>
+    </aura:if>
+    <aura:if isTrue="{!v.isEmployeeCard}">
+      
+        <c:EmployeeComponent/>
+    </aura:if>
+    <aura:if isTrue="{!v.isEmployeeSearch}">
+      
+        <c:EmployeeSearchComponent/>
     </aura:if>
     </div>
     <c:siteFooter/>
