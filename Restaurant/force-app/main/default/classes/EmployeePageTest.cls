@@ -1,4 +1,0 @@
-@isTest
-public class EmployeePageTest {
-	
-}
