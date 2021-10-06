@@ -1,0 +1,63 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name="emp" type="Employee__c" />
+    <aura:attribute name="recordId" type="String" />    
+    <aura:attribute name="activeEmployees" type="Object[]"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+            <div onkeyup="{! c.handleKeyUp }" class="slds-var-p-left_medium slds-var-p-right_medium">
+                    <lightning:input                
+                        aura:id="enter-search"
+                        name="enter-search"
+                        label="Search for Employee by ID"
+                        type="search"
+                    />
+            </div>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-large-size_6-of-12">
+            <lightning:card>        
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <lightning:icon iconName="custom:custom15" size="small"/>
+                            Employee Information
+                        </div>            
+                        <div class="slds-list_vertical slds-has-dividers_top-space">
+                            <lightning:recordViewForm objectApiName="Employee__c" recordId="{!v.recordId}">
+                                <lightning:layout multipleRows="true">
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Name"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Gender__c"/>
+                                    </lightning:layoutItem>       
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Phone__c"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Email__c"/>
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="6">
+                                        <lightning:outputField fieldName="Hired_On_Date__c"/>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                            </lightning:recordViewForm>
+                        </div>
+                    </header>
+                </div>
+            </lightning:card>
+        </div>
+    </div>        
+	<lightning:recordEditForm aura:id="recordEditForm"
+                           objectApiName="Employee__c"
+                           class="slds-var-p-left_medium slds-var-p-right_medium">
+        <lightning:messages />
+        <lightning:inputField aura:id="field" fieldName="Name" />
+        <lightning:inputField aura:id="field" fieldName="Gender__c" />
+        <lightning:inputField aura:id="field" fieldName="Phone__c"/>
+        <lightning:inputField aura:id="field" fieldName="Email__c" />
+        <lightning:inputField aura:id="field" fieldName="Hired_On_Date__c" />
+        <lightning:inputField aura:id="field" fieldName="Salary__c" />
+        <lightning:button class="slds-var-m-top_small" type="submit" label="Create New Employee Record" onclick="{!c.showSuccess}"/>
+        <lightning:button class="slds-var-m-top_small" variant="destructive-text" label="Clear Text Fields" onclick="{!c.handleReset}"/>
+    </lightning:recordEditForm>
+</aura:component>
