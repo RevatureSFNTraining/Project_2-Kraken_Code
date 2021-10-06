@@ -13,5 +13,6 @@
     fireNewTransaction : function() {
         var appEvent = $A.get("e.c:newTransaction");
         appEvent.fire();
-    }
+    },
+
 })

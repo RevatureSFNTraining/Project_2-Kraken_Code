@@ -1,8 +1,16 @@
 <aura:component>
+
+    <aura:handler event="c:newTransaction" action="{!c.handleSaveEvents}"/>
+    <aura:handler event="c:newContact" action="{!c.handleSaveEvents}"/>
+    <aura:handler event="c:contactDeletionEvent" action="{!c.handleDeleteEvents}"/>
+    <aura:handler event="c:TransactionDeletionEvent" action="{!c.handleDeleteEvents}"/>
     <aura:attribute name="isNewCustomer" type="String" default="true"/>
     <div class="slds-m-vertical_xx-large slds-m-horizontal_small mainDiv">
-        
-      
+    
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    
         <h2 class="infoHeader">Log new customers or create transactions</h2>
 
         <lightning:card class="slds-align_absolute-center slds-m-bottom_xx-large mainCard">

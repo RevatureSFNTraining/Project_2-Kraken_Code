@@ -51,12 +51,12 @@
                            objectApiName="Employee__c"
                            class="slds-var-p-left_medium slds-var-p-right_medium">
         <lightning:messages />
-        <lightning:inputField fieldName="Name" />
-        <lightning:inputField fieldName="Gender__c" />
-        <lightning:inputField fieldName="Phone__c"/>
-        <lightning:inputField fieldName="Email__c" />
-        <lightning:inputField fieldName="Hired_On_Date__c" />
-        <lightning:inputField fieldName="Salary__c" />
-        <lightning:button class="slds-var-m-top_small" type="submit" label="Create New Employee Record" />
+        <lightning:inputField aura:id="field" fieldName="Name" />
+        <lightning:inputField aura:id="field" fieldName="Gender__c" />
+        <lightning:inputField aura:id="field" fieldName="Phone__c"/>
+        <lightning:inputField aura:id="field" fieldName="Email__c" />
+        <lightning:inputField aura:id="field" fieldName="Hired_On_Date__c" />
+        <lightning:inputField aura:id="field" fieldName="Salary__c" />
+        <lightning:button class="slds-var-m-top_small" type="submit" label="Create New Employee Record" onclick="{!c.showSuccess}"/>
     </lightning:recordEditForm>
 </aura:component>
