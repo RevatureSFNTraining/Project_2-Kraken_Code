@@ -48,7 +48,7 @@
 
 <br/>
 
-<div style="height: 300px">>
+<div style="height: 300px">
     <span>
         <lightning:input type="search" lable="Search" placeholder="Search Customers" aura:id="SearchBox"
                             onchange="{!c.searchTable}" />
