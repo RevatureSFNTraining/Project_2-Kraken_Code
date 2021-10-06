@@ -24,6 +24,15 @@
     changeMode : function(component, event) {
         let decision = event.getSource().getLocalId();
         component.set("v.mode", decision);
+    },
+
+
+    showToast : function(component) {
+        
+        component.find('notifLib').showToast({
+            "title" : "Success!",
+            "message" : "The record was saved successfully."
+        });
     }
 
 })

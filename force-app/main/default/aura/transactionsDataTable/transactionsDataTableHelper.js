@@ -37,9 +37,11 @@
                 console.log("table updated");
             }
         });
-        console.log(delTransactions);
+        
         $A.enqueueAction(delTransactions);
         component.set("v.rows", [])
+        var appEvent = $A.get("e.c:TransactionDeletionEvent");
+        appEvent.fire();
         this.fetchData(component); 
     }
       

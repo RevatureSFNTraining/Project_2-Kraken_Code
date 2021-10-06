@@ -9,5 +9,14 @@
         });
         $A.enqueueAction(leads);
         
+    },
+
+
+    showToast : function(component) {
+        
+        component.find('notifLib').showToast({
+            "title" : "Success!",
+            "message" : "The record was saved successfully."
+        });
     }
 })

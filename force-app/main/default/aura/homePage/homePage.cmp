@@ -15,13 +15,14 @@
             <lightning:button class="decisionButton" aura:id="false" label="Lead Management" onclick="{!c.changeMode}" />
         </div>
         
-        
+        <lightning:notificationsLibrary aura:id="notifLib"/>
         <aura:if isTrue="{!v.mode}">
             
 
             <h2 class="infoHeader header slds-align_absolute-center slds-m-vertical_large">Create a case:</h2>
             <div class="create">
                 <lightning:card class="slds-p-horizontal_medium">
+                    
                     <lightning:recordEditForm objectApiName="Case" onsuccess="{!c.reDrawCases}">
                                 <lightning:messages />
                                 <lightning:inputField fieldName="AccountId" />
