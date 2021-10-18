@@ -9,7 +9,7 @@ This is a Lightning Aura Component Experience Site for a fictitious restaurant.
 * LAC
 * SLDS
 * Apex
-* HTML/CSS
+* HTML/CSS/JavaScript
 
 ## Features
 
