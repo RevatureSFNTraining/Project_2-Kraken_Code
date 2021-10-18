@@ -1,8 +1,8 @@
-# Project Name - The Restuarant
+# Project Name - The Restaurant
 
 ## Project Description
 
-This is a Lightning Aura Component Experience Site for a fictitious resturuant.
+This is a Lightning Aura Component Experience Site for a fictitious restaurant.
 
 ## Technologies Used
 
